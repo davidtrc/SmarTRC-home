@@ -1,0 +1,284 @@
+Change Component Footprint: Designator=LD_TST_2 Old Footprint=0603 LED-BLUE New Footprint=0603 LED-RED
+Change Component Footprint: Designator=LDB Old Footprint=0603 LED-BLUE New Footprint=0603 LED-RED
+Change Component Footprint: Designator=LD_TST_1 Old Footprint=0603 LED-Green New Footprint=0603 LED-RED
+Change Component Footprint: Designator=LDG Old Footprint=0603 LED-Green New Footprint=0603 LED-RED
+Change Component Footprint: Designator=C1 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C2 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C3 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C4 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C5 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C6 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C7 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C8 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C9 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C10 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C11 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C12 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C13 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C14 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C15 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C16 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C17 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C18 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C19 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C20 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C21 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C22 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C23 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C24 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C25 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C26 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C27 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=C28 Old Footprint=0805 CAP New Footprint=7343 tantalum
+Change Component Footprint: Designator=L1 Old Footprint=INDC11030X40N New Footprint=0402-A
+Change Component Footprint: Designator=L2 Old Footprint=L7030 New Footprint=0402-A
+Change Component Footprint: Designator=10114830 Old Footprint=Molex 0353630250 New Footprint=AMPHENOL 10114830 - Conector de cable a placa - 1.25mm
+Change Component Footprint: Designator=DZ-1 Old Footprint=SMAZ5V6-TP New Footprint=SOD-323
+Change Component Comment : Designator=SN74AUP3G17DCUR Old Comment= New Comment=SN74AUP3G17DCUR
+Change component parameters: Designator = "AP6015"; Footprint = "AP6015"; UniqueID = "\KVOTQMMC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "C1"; Footprint = "7343 tantalum"; UniqueID = "\XHOCJBNE"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C3"; Footprint = "7343 tantalum"; UniqueID = "\UYEEMUUK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C6"; Footprint = "7343 tantalum"; UniqueID = "\BPAXWGKG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C7"; Footprint = "7343 tantalum"; UniqueID = "\YIMRXDTS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C8"; Footprint = "7343 tantalum"; UniqueID = "\BNRRDXAM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C10"; Footprint = "7343 tantalum"; UniqueID = "\PFOXVMRR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C17"; Footprint = "7343 tantalum"; UniqueID = "\FFEYNMSA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C18"; Footprint = "7343 tantalum"; UniqueID = "\UJJLYKIY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C19"; Footprint = "7343 tantalum"; UniqueID = "\EBVGJXYH"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C20"; Footprint = "7343 tantalum"; UniqueID = "\ECLGIDCC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C21"; Footprint = "7343 tantalum"; UniqueID = "\ETOIESVG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C22"; Footprint = "7343 tantalum"; UniqueID = "\VLLSTLCX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C23"; Footprint = "7343 tantalum"; UniqueID = "\OWCQIDXV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C24"; Footprint = "7343 tantalum"; UniqueID = "\RMNAKMLE"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C25"; Footprint = "7343 tantalum"; UniqueID = "\LTMEMWOE"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C26"; Footprint = "7343 tantalum"; UniqueID = "\LIMVHDJJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C27"; Footprint = "7343 tantalum"; UniqueID = "\LXNHDDLK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "DZ-1"; Footprint = "SOD-323"; UniqueID = "\PXUDTYKO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "LD_TST_1"; Footprint = "0603 LED-RED"; UniqueID = "\MYOIEORK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "LD_TST_2"; Footprint = "0603 LED-RED"; UniqueID = "\MUBJKEMU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "LDB"; Footprint = "0603 LED-RED"; UniqueID = "\APMENPFK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "LDG"; Footprint = "0603 LED-RED"; UniqueID = "\JQTUQELB"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "MCP1640"; Footprint = "MCP1640"; UniqueID = "\JYFMNAJA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "R10"; Footprint = "0805 Res"; UniqueID = "\GDPHOLHJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R17"; Footprint = "0805 Res"; UniqueID = "\PQUGSANU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R21"; Footprint = "0805 Res"; UniqueID = "\WWWPXIMN"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "STC3100"; Footprint = "STC3100"; UniqueID = "\LUYTQUNI"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "U1"; Footprint = "PIC32MZ2048EFH064"; UniqueID = "\UOEDXSFV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Microchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "PIC32MZ2048EFH064-I/PT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "TQFP-64 Microchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PIC32MZ2048EFH064-I/PT/Microchip/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "U2"; Footprint = "MRF24J40MA"; UniqueID = "\LPBJSCHD"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Digi-Key_Part_Number"; Value = "MRF24J40MAT-I/RMTR-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.es/product-detail/en/microchip-technology/MRF24J40MAT-I-RM/MRF24J40MAT-I-RMTR-ND/2002555?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Microchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "MRF24J40MA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "Module Microchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/MRF24J40MA/Microchip/view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "C2"; Footprint = "7343 tantalum"; UniqueID = "\GUJTAPWU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C4"; Footprint = "7343 tantalum"; UniqueID = "\HIVLPKRG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C5"; Footprint = "7343 tantalum"; UniqueID = "\WUUIJYMO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C9"; Footprint = "7343 tantalum"; UniqueID = "\AEUMMMGO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C11"; Footprint = "7343 tantalum"; UniqueID = "\QFAFAXNP"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C12"; Footprint = "7343 tantalum"; UniqueID = "\RLWICSFX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C13"; Footprint = "7343 tantalum"; UniqueID = "\PIKWNOPW"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C14"; Footprint = "7343 tantalum"; UniqueID = "\URKGJYWT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C15"; Footprint = "7343 tantalum"; UniqueID = "\HJWAQIFI"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C16"; Footprint = "7343 tantalum"; UniqueID = "\PFMUEDYO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C28"; Footprint = "7343 tantalum"; UniqueID = "\SYQPWKUG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "100n"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L1"; Footprint = "0402-A"; UniqueID = "\RNRKOQIC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Code_IEC"; Value = "1005"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEITA"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Chip Inductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "0402-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10mH"; VariantName = "[No Variations]"
+Change component parameters: Designator = "L2"; Footprint = "0402-A"; UniqueID = "\MNWPHTSL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Code_IEC"; Value = "1005"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEITA"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "29-May-2009"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "IPC-7351 Footprint Added."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Chip Inductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "0402-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10mH"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R1"; Footprint = "0805 Res"; UniqueID = "\XXBBQJRM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R2"; Footprint = "0805 Res"; UniqueID = "\SQEJBDHS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R3"; Footprint = "0805 Res"; UniqueID = "\TOWNPHIW"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R4"; Footprint = "0805 Res"; UniqueID = "\EGQFYCAX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R5"; Footprint = "0805 Res"; UniqueID = "\RKOJJJMR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R6"; Footprint = "0805 Res"; UniqueID = "\DBUYBCUX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R7"; Footprint = "0805 Res"; UniqueID = "\JMXPTBWL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R8"; Footprint = "0805 Res"; UniqueID = "\LUJSXDGJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R9"; Footprint = "0805 Res"; UniqueID = "\JRXCYHTV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R11"; Footprint = "0805 Res"; UniqueID = "\YEOAGRHR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R12"; Footprint = "0805 Res"; UniqueID = "\XKRCJXDR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R13"; Footprint = "0805 Res"; UniqueID = "\CWQEBGCF"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R14"; Footprint = "0805 Res"; UniqueID = "\XCGOSWAC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R15"; Footprint = "0805 Res"; UniqueID = "\DEMOCQPU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R16"; Footprint = "0805 Res"; UniqueID = "\WHBRFJGS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R18"; Footprint = "0805 Res"; UniqueID = "\XADJLHLH"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R19"; Footprint = "0805 Res"; UniqueID = "\EJGMNILY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R20"; Footprint = "0805 Res"; UniqueID = "\TAYGGOHB"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R22"; Footprint = "0805 Res"; UniqueID = "\FSVYFOMO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R23"; Footprint = "0805 Res"; UniqueID = "\KBVFTFNA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R24"; Footprint = "0805 Res"; UniqueID = "\HLRHYYYF"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R25"; Footprint = "0805 Res"; UniqueID = "\LXMCIDYN"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R26"; Footprint = "0805 Res"; UniqueID = "\RSAKQYXW"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R27"; Footprint = "0805 Res"; UniqueID = "\CDEFJOWU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R28"; Footprint = "0805 Res"; UniqueID = "\CGFKKPYL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R29"; Footprint = "0805 Res"; UniqueID = "\MGISHOYT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R30"; Footprint = "0805 Res"; UniqueID = "\PFQXPLQB"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R31"; Footprint = "0805 Res"; UniqueID = "\MVRXWUWI"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R32"; Footprint = "0805 Res"; UniqueID = "\SDKOJYTU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R33"; Footprint = "0805 Res"; UniqueID = "\ICWFQKIE"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R34"; Footprint = "0805 Res"; UniqueID = "\JGCKWDCA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R35"; Footprint = "0805 Res"; UniqueID = "\OEBVFKIW"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Net74AUP1T34GW_5 Pin=10114830-1
+Added Pin To Net: NetName=GND Pin=10114830-2

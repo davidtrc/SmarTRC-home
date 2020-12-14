@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetSENSOR SOCKET_2 Pin=U1-17
+Removed Pin From Net: NetName=VBAT+ Pin=V+-1
+Removed Pin From Net: NetName=GND Pin=V+-2
+Added Component: Designator=0353630250(Molex 0353630250)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "WM12220-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VBAT+ Pin=0353630250-1
+Added Pin To Net: NetName=GND Pin=0353630250-2
+Added Pin To Net: NetName=NetSENSOR SOCKET_2 Pin=U1-14
+Added Pin To Net: NetName=NetU1_17 Pin=U1-17
+Added Net: Name=NetU1_17
+Added Pin To Net: NetName=NetU1_18 Pin=U1-18
+Added Net: Name=NetU1_18

@@ -1,0 +1,13 @@
+Added Component: Designator=SN74AUP3G17DCUR(SN74AUP3G17DCUR)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "296-25596-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC3_1 Pin=SN74AUP3G17DCUR-1
+Added Pin To Net: NetName=NetBUTTONS SOCKET1_4 Pin=SN74AUP3G17DCUR-2
+Added Pin To Net: NetName=NetC7_1 Pin=SN74AUP3G17DCUR-3
+Added Pin To Net: NetName=NetBTN1_2 Pin=SN74AUP3G17DCUR-4
+Added Pin To Net: NetName=NetBUTTONS SOCKET1_6 Pin=SN74AUP3G17DCUR-5
+Added Pin To Net: NetName=NetC8_1 Pin=SN74AUP3G17DCUR-6
+Added Pin To Net: NetName=NetBUTTONS SOCKET1_8 Pin=SN74AUP3G17DCUR-7
+Added Pin To Net: NetName=NetAP6015_9 Pin=SN74AUP3G17DCUR-8
+Added Member To Class: ClassName=Esquematico Member=Component SN74AUP3G17DCUR 

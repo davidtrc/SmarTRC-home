@@ -1,0 +1,27 @@
+Added Component: Designator=74AUP1T34GW(74AUP1T34GW)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "1727-6030-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetAP6015_9 Pin=74AUP1T34GW-1
+Added Pin To Net: NetName=GND Pin=74AUP1T34GW-3
+Added Pin To Net: NetName=Net10114830_1 Pin=74AUP1T34GW-5
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=R15-2
+Added Pin To Net: NetName=GND Pin=STC3100-6
+Added Pin To Net: NetName=NetMHET SOCKET_6 Pin=U1-1
+Added Pin To Net: NetName=NetMHET SOCKET_5 Pin=U1-4
+Added Pin To Net: NetName=NetU1_47 Pin=U2-5
+Added Pin To Net: NetName=NetU1_49 Pin=U2-6
+Added Pin To Net: NetName=NetU1_48 Pin=U2-7
+Change Net Name : Old Net Name=Net10114830_1 New Net Name=Net74AUP1T34GW_5
+Change Net Name : Old Net Name=NetAP6015_9 New Net Name=Net74AUP1T34GW_1
+Added Pin To Net: NetName=Net74AUP1T34GW_2 Pin=74AUP1T34GW-2
+Added Pin To Net: NetName=Net74AUP1T34GW_2 Pin=U1-24
+Added Net: Name=Net74AUP1T34GW_2
+Added Pin To Net: NetName=Net74AUP1T34GW_4 Pin=74AUP1T34GW-4
+Added Pin To Net: NetName=Net74AUP1T34GW_4 Pin=MCP1640-3
+Added Net: Name=Net74AUP1T34GW_4
+Added Pin To Net: NetName=NetU1_30 Pin=U1-30
+Added Pin To Net: NetName=NetU1_30 Pin=U2-8
+Added Net: Name=NetU1_30
+Added Member To Class: ClassName=Esquematico Member=Component 74AUP1T34GW

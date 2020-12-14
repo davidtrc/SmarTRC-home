@@ -1,0 +1,39 @@
+Removed Pin From Net: NetName=NetJ1_2 Pin=uSD-2
+Removed Pin From Net: NetName=NetJ1_3 Pin=uSD-3
+Removed Pin From Net: NetName=Net74AUP1T34GW_1 Pin=uSD-4
+Removed Pin From Net: NetName=NetJ1_5 Pin=uSD-5
+Removed Pin From Net: NetName=GND Pin=uSD-6
+Removed Pin From Net: NetName=NetJ1_7 Pin=uSD-7
+Removed Pin From Net: NetName=GND Pin=uSD-DT
+Removed Pin From Net: NetName=GND Pin=uSD-P1
+Removed Pin From Net: NetName=GND Pin=uSD-P2
+Removed Pin From Net: NetName=GND Pin=uSD-P3
+Removed Pin From Net: NetName=GND Pin=uSD-P4
+Removed Pin From Net: NetName=GND Pin=uSD-P5
+Removed Pin From Net: NetName=NetJ1_SW Pin=uSD-SW
+Added Component: Designator=J1(MOLEX 503182-1852 (MicroSD))
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digi-Key_Part_Number"; Value = "WM12834CT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.es/product-detail/en/molex/5031821852/WM12834CT-ND/5823232?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Molex"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "5031821852"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/5031821852/Molex/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "WM12834CT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3
+Added Pin To Net: NetName=Net74AUP1T34GW_1 Pin=J1-4
+Added Pin To Net: NetName=NetJ1_5 Pin=J1-5
+Added Pin To Net: NetName=GND Pin=J1-6
+Added Pin To Net: NetName=NetJ1_7 Pin=J1-7
+Added Pin To Net: NetName=GND Pin=J1-DT
+Added Pin To Net: NetName=GND Pin=J1-P1
+Added Pin To Net: NetName=GND Pin=J1-P2
+Added Pin To Net: NetName=GND Pin=J1-P3
+Added Pin To Net: NetName=GND Pin=J1-P4
+Added Pin To Net: NetName=GND Pin=J1-P5
+Added Pin To Net: NetName=NetJ1_SW Pin=J1-SW
+Added Member To Class: ClassName=Esquematico Member=Component J1 MOLEX 503182-1852 (MicroSD)
+Added Room: Name=Esquematico
