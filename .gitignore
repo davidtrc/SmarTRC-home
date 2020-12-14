@@ -1,3 +1,5 @@
 HW/HumiTempPM/History
 *.o
-
+*.elf
+*.hex
+*.map
