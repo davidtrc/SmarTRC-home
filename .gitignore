@@ -2,6 +2,7 @@ HW/HumiTempPM/History
 HW/HumiTempPM/__Previews/
 SW/HumiTemp/firmware/HumiTemp.X/build/
 SW/HumiTemp/firmware/HumiTemp.X/dist/
+SW/HumiTemp/firmware/HumiTemp.X/nbproject/private/private.xml
 *.o
 *.elf
 *.hex
