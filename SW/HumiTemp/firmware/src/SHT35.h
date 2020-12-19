@@ -7,6 +7,8 @@
 #endif
 
 #define SENSOR_ADDRESS       0x44
+        
+void SHT_Get_Temp_and_Humidity(double *tempd, double *humid);
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus

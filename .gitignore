@@ -1,7 +1,9 @@
 HW/HumiTempPM/History
+HW/HumiTempPM/__Previews/
 SW/HumiTemp/firmware/HumiTemp.X/build/
 SW/HumiTemp/firmware/HumiTemp.X/dist/
 *.o
 *.elf
 *.hex
 *.map
+*.log

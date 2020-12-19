@@ -474,3 +474,18 @@ void SPI3_TX_InterruptHandler (void)
     IFS4CLR = 0x10000000;
 }
 
+void SPI3_Set_Baudrate (uint32_t clockFrequency)
+{
+
+    uint32_t spiSourceClock = 100000000;
+    uint32_t t_brg;
+
+    t_brg = (((spiSourceClock / clockFrequency) / 2u) - 1u);
+    
+    if(t_brg > 511)
+    {
+        t_brg = 511;
+    }
+    SPI3BRG = t_brg;
+}
+

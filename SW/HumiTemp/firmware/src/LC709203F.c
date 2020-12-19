@@ -9,22 +9,23 @@
 #include "CustomTime.h"
 #include "crc8.h"
 #include "debug.h"
-    #define DEBUG
 
 uint8_t LC709203F_Init(void){
     
     uint8_t ret = 0;
     
-    if(LC709203F_Set_Operational_Mode(OPERATIONAL_MODE_VAL, true))  //Enables the device
+    if(LC709203F_Set_Operational_Mode(OPERATIONAL_MODE_VAL, true))      //Enables the device
         ret = ret | SET_OM_ERR;   
     if(LC709203F_Set_APA(APA_VAL, true))                                //Sets APA value and checks that it writes correctly
         ret = ret | SET_APA_ERR;  
-    if(LC709203F_Set_Battery_Profile(CHANGE_OF_PARAMETER_VAL, true))         //Sets Change of paramter and checks that it writes correctly
-        ret = ret | SET_BP_ERR;  
-    LC709203F_Set_Initial_RSOC(INITIAL_RSOC_VAL);                         //Configures the initial RSOC 
-    if(LC709203F_Set_I2C_Mode(GAUGE_STATUS_BIT_VAL, true))             //Enables I2C mode for the temperature
+    if(LC709203F_Set_Battery_Profile(CHANGE_OF_PARAMETER_VAL, true))    //Sets Change of paramter and checks that it writes correctly
+        ret = ret | SET_BP_ERR;
+    DelayMs(1000);                                                      //Delay to let the uC drop current consumption and get better RSOC
+    LC709203F_Set_Initial_RSOC(INITIAL_RSOC_VAL);                       //Configures the initial RSOC
+    DelayMs(1000);                                                      //Delay to let the uC drop current consumption and get better RSOC
+    if(LC709203F_Set_I2C_Mode(GAUGE_STATUS_BIT_VAL, true))              //Enables I2C mode for the temperature
         ret = ret | SET_IM_ERR;  
-    if(LC709203F_Set_Temperature(DEFAULT_TEMP, true))                  //Sets the temperature
+    if(LC709203F_Set_Temperature(DEFAULT_TEMP, true))                   //Sets the temperature
         ret = ret | SET_TEMP_ERR;  
     
     return ret;

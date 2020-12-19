@@ -27,10 +27,13 @@
             </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
               <itemPath>../src/config/default/peripheral/spi/plib_spi_common.h</itemPath>
-              <itemPath>../src/config/default/peripheral/spi/plib_spi4.h</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi3.h</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi2.h</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi1.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="tmr1" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/tmr1/plib_tmr1_common.h</itemPath>
+              <itemPath>../src/config/default/peripheral/tmr1/plib_tmr1.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="uart" projectFiles="true">
               <itemPath>../src/config/default/peripheral/uart/plib_uart_common.h</itemPath>
@@ -44,6 +47,11 @@
       </logicalFolder>
       <logicalFolder name="f5" displayName="CustomTime" projectFiles="true">
         <itemPath>../src/CustomTime.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f9" displayName="fatfs" projectFiles="true">
+        <itemPath>../src/diskio.h</itemPath>
+        <itemPath>../src/ff.h</itemPath>
+        <itemPath>../src/ffconf.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="LC709203F" projectFiles="true">
         <itemPath>../src/LC709203F.h</itemPath>
@@ -63,6 +71,8 @@
       </logicalFolder>
       <logicalFolder name="f6" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f10" displayName="uSD" projectFiles="true">
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -92,10 +102,12 @@
               <itemPath>../src/config/default/peripheral/i2c/plib_i2c3.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
-              <itemPath>../src/config/default/peripheral/spi/plib_spi4.c</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi3.c</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi2.c</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi1.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="tmr1" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/tmr1/plib_tmr1.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="uart" projectFiles="true">
               <itemPath>../src/config/default/peripheral/uart/plib_uart3.c</itemPath>
@@ -113,6 +125,10 @@
       <logicalFolder name="f4" displayName="CustomTime" projectFiles="true">
         <itemPath>../src/CustomTime.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="f8" displayName="fatfs" projectFiles="true">
+        <itemPath>../src/diskio.c</itemPath>
+        <itemPath>../src/ff.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="LC709203F" projectFiles="true">
         <itemPath>../src/LC709203F.c</itemPath>
       </logicalFolder>
@@ -125,6 +141,8 @@
       <logicalFolder name="f5" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="f9" displayName="uSD" projectFiles="true">
+      </logicalFolder>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -135,6 +153,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../src</Elem>
+    <Elem>../../../../../../Downloads/ff14a/source</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

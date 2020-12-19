@@ -3,7 +3,7 @@
   <Configurator>
     <Name dnOrder="0" value="default"/>
     <Processor dnOrder="1" value="PIC32MZ2048EFH064"/>
-    <Harmony dnOrder="2" path="../../HarmonyFramework"/>
+    <Harmony dnOrder="2" path="../../../../HarmonyFramework"/>
     <Manifest dnOrder="3">
       <Files dnOrder="0">
         <File dnOrder="0">
@@ -19,50 +19,42 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/default/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E1B5EA69C59320347E69863DB4B7AED8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E1B5EA69C59320347E69863DB4B7AED8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EACA9B6BF7991FD8E8C9EDB7B627B60E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7B1301ECA9454F053DF300A854076CBB</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/default/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B2928322FA0590F70A92C864938DC069</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B2928322FA0590F70A92C864938DC069</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A8B9F049D568332EBDA0AA197E98B6F3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DB166DB9F4B1F50C43C3CC56ED3C9897</UserChecksum>
         </File>
         <File dnOrder="3">
-          <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">main.c</Name>
-          <LogicalPath dnOrder="2"/>
-          <PhysicalPath dnOrder="3">/../../</PhysicalPath>
-          <GeneratedChecksum dnOrder="4"/>
-          <UserChecksum dnOrder="5"/>
-        </File>
-        <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">669EBE041E70481FDF71FE8C0F95AAFE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">669EBE041E70481FDF71FE8C0F95AAFE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D2B9626813033895CA5738347345442B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D2B9626813033895CA5738347345442B</UserChecksum>
         </File>
-        <File dnOrder="5">
+        <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_evic.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">35C6F3541CA60348537F46052E5FE74D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">35C6F3541CA60348537F46052E5FE74D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CBC883C976625215FC67A33986054063</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CBC883C976625215FC67A33986054063</UserChecksum>
         </File>
-        <File dnOrder="6">
+        <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9F9F3E899FDBE79B2171285AAB24EB9F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C44EEA971FF816C7C90E75C74DE40A7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D9BD1D97B21DB6094A920B9067A56593</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1C5B6F035594379CF7963B3F9116291B</UserChecksum>
         </File>
-        <File dnOrder="7">
+        <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_i2c1.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/i2c/</LogicalPath>
@@ -70,7 +62,7 @@
           <GeneratedChecksum dnOrder="4">4F25F6CD482D093F10255918337D15B2</GeneratedChecksum>
           <UserChecksum dnOrder="5">4F25F6CD482D093F10255918337D15B2</UserChecksum>
         </File>
-        <File dnOrder="8">
+        <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_i2c3.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/i2c/</LogicalPath>
@@ -78,7 +70,7 @@
           <GeneratedChecksum dnOrder="4">7B98633BFEB0882B30F7D582A0FB0CB2</GeneratedChecksum>
           <UserChecksum dnOrder="5">7B98633BFEB0882B30F7D582A0FB0CB2</UserChecksum>
         </File>
-        <File dnOrder="9">
+        <File dnOrder="8">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_spi1.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
@@ -86,7 +78,7 @@
           <GeneratedChecksum dnOrder="4">F6085D21ACF95F035E0B65B8ECA38A9E</GeneratedChecksum>
           <UserChecksum dnOrder="5">F6085D21ACF95F035E0B65B8ECA38A9E</UserChecksum>
         </File>
-        <File dnOrder="10">
+        <File dnOrder="9">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_spi2.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
@@ -94,23 +86,23 @@
           <GeneratedChecksum dnOrder="4">AFB9BE13721465BCF4FFCBDF07631CE9</GeneratedChecksum>
           <UserChecksum dnOrder="5">AFB9BE13721465BCF4FFCBDF07631CE9</UserChecksum>
         </File>
-        <File dnOrder="11">
+        <File dnOrder="10">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_spi3.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/spi/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">C727E9508887B55DC52DA9C8E9348E66</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C727E9508887B55DC52DA9C8E9348E66</UserChecksum>
+          <UserChecksum dnOrder="5">4F242B381C10D9176DDAAF22FB19BA74</UserChecksum>
+        </File>
+        <File dnOrder="11">
+          <Type dnOrder="0">SOURCE</Type>
+          <Name dnOrder="1">plib_tmr1.c</Name>
+          <LogicalPath dnOrder="2">config/default/peripheral/tmr1/</LogicalPath>
+          <PhysicalPath dnOrder="3">/peripheral/tmr1/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">1A40C0C47F04CA05BC1EAA05D3C7DE63</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4D156705E5AE2FFE2AB7B15BCF3F98E5</UserChecksum>
         </File>
         <File dnOrder="12">
-          <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">plib_spi4.c</Name>
-          <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
-          <PhysicalPath dnOrder="3">/peripheral/spi/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2504CFC1B4C6DCBC83E0BE8BBB2EE4F4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2504CFC1B4C6DCBC83E0BE8BBB2EE4F4</UserChecksum>
-        </File>
-        <File dnOrder="13">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_uart2.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/uart/</LogicalPath>
@@ -118,7 +110,7 @@
           <GeneratedChecksum dnOrder="4">52633388101D3125A4426D7EB3800587</GeneratedChecksum>
           <UserChecksum dnOrder="5">52633388101D3125A4426D7EB3800587</UserChecksum>
         </File>
-        <File dnOrder="14">
+        <File dnOrder="13">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_uart3.c</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/uart/</LogicalPath>
@@ -126,7 +118,7 @@
           <GeneratedChecksum dnOrder="4">64BB3A8AC2BEC0607A892ED2DB083D3D</GeneratedChecksum>
           <UserChecksum dnOrder="5">64BB3A8AC2BEC0607A892ED2DB083D3D</UserChecksum>
         </File>
-        <File dnOrder="15">
+        <File dnOrder="14">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">xc32_monitor.c</Name>
           <LogicalPath dnOrder="2">config/default/stdio/</LogicalPath>
@@ -134,15 +126,15 @@
           <GeneratedChecksum dnOrder="4">1A5A329DF9017A81C7FB9A9D0F41B649</GeneratedChecksum>
           <UserChecksum dnOrder="5">1A5A329DF9017A81C7FB9A9D0F41B649</UserChecksum>
         </File>
-        <File dnOrder="16">
+        <File dnOrder="15">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/default/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">324E386848896F61437B95853F637249</GeneratedChecksum>
-          <UserChecksum dnOrder="5">324E386848896F61437B95853F637249</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7630560ADEE692A7EA3BDEC285B6C89C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1FCCF9E86B538585C7E2EC656F8A3DCD</UserChecksum>
         </File>
-        <File dnOrder="17">
+        <File dnOrder="16">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
           <LogicalPath dnOrder="2">packs/PIC32MZ2048EFH064_DFP/</LogicalPath>
@@ -150,7 +142,7 @@
           <GeneratedChecksum dnOrder="4">5D5C52527AB1435153DB9B50ADE6B79D</GeneratedChecksum>
           <UserChecksum dnOrder="5">5D5C52527AB1435153DB9B50ADE6B79D</UserChecksum>
         </File>
-        <File dnOrder="18">
+        <File dnOrder="17">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_clk.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/clk/</LogicalPath>
@@ -158,7 +150,7 @@
           <GeneratedChecksum dnOrder="4">7066CC390335CF75126E2A50C46E3BDD</GeneratedChecksum>
           <UserChecksum dnOrder="5">7066CC390335CF75126E2A50C46E3BDD</UserChecksum>
         </File>
-        <File dnOrder="19">
+        <File dnOrder="18">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_evic.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/evic/</LogicalPath>
@@ -166,15 +158,15 @@
           <GeneratedChecksum dnOrder="4">81B2AF10CCF29049B2D41F7FB63DFD19</GeneratedChecksum>
           <UserChecksum dnOrder="5">81B2AF10CCF29049B2D41F7FB63DFD19</UserChecksum>
         </File>
-        <File dnOrder="20">
+        <File dnOrder="19">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_gpio.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0A2E66218DC9111CE030662D3DC3E4A9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0A2E66218DC9111CE030662D3DC3E4A9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DA2C86D0F11E66E8C350ED5F7EA30557</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DA2C86D0F11E66E8C350ED5F7EA30557</UserChecksum>
         </File>
-        <File dnOrder="21">
+        <File dnOrder="20">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_i2c1.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/i2c/</LogicalPath>
@@ -182,7 +174,7 @@
           <GeneratedChecksum dnOrder="4">6B7CE55C6287B6BC5FB3FE9E26DC7BB8</GeneratedChecksum>
           <UserChecksum dnOrder="5">6B7CE55C6287B6BC5FB3FE9E26DC7BB8</UserChecksum>
         </File>
-        <File dnOrder="22">
+        <File dnOrder="21">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_i2c3.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/i2c/</LogicalPath>
@@ -190,7 +182,7 @@
           <GeneratedChecksum dnOrder="4">0FD3A0A42A55D25C855DA3A4C658BAFE</GeneratedChecksum>
           <UserChecksum dnOrder="5">0FD3A0A42A55D25C855DA3A4C658BAFE</UserChecksum>
         </File>
-        <File dnOrder="23">
+        <File dnOrder="22">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_i2c_master.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/i2c/</LogicalPath>
@@ -198,7 +190,7 @@
           <GeneratedChecksum dnOrder="4">FE1F77611D435D0C55012B2886CFBD69</GeneratedChecksum>
           <UserChecksum dnOrder="5">FE1F77611D435D0C55012B2886CFBD69</UserChecksum>
         </File>
-        <File dnOrder="24">
+        <File dnOrder="23">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_spi1.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
@@ -206,7 +198,7 @@
           <GeneratedChecksum dnOrder="4">279EBCD5182DA4997A74D20D60AAB706</GeneratedChecksum>
           <UserChecksum dnOrder="5">279EBCD5182DA4997A74D20D60AAB706</UserChecksum>
         </File>
-        <File dnOrder="25">
+        <File dnOrder="24">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_spi2.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
@@ -214,29 +206,37 @@
           <GeneratedChecksum dnOrder="4">F3CE891D60C91A674F2A43E480788EB7</GeneratedChecksum>
           <UserChecksum dnOrder="5">F3CE891D60C91A674F2A43E480788EB7</UserChecksum>
         </File>
-        <File dnOrder="26">
+        <File dnOrder="25">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_spi3.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/spi/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">351D08EEAC373A82B986B7D07BDDAE21</GeneratedChecksum>
-          <UserChecksum dnOrder="5">351D08EEAC373A82B986B7D07BDDAE21</UserChecksum>
+          <UserChecksum dnOrder="5">E85A7B9EFE3FDF449F5A6923767BA747</UserChecksum>
         </File>
-        <File dnOrder="27">
-          <Type dnOrder="0">HEADER</Type>
-          <Name dnOrder="1">plib_spi4.h</Name>
-          <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
-          <PhysicalPath dnOrder="3">/peripheral/spi/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D9DFA5FD64C487D923AA773F9FF75DFF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D9DFA5FD64C487D923AA773F9FF75DFF</UserChecksum>
-        </File>
-        <File dnOrder="28">
+        <File dnOrder="26">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_spi_common.h</Name>
           <LogicalPath dnOrder="2">config/default/peripheral/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/spi/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">4247D7FA1CFBCADA8B8446FDC0E12559</GeneratedChecksum>
           <UserChecksum dnOrder="5">4247D7FA1CFBCADA8B8446FDC0E12559</UserChecksum>
+        </File>
+        <File dnOrder="27">
+          <Type dnOrder="0">HEADER</Type>
+          <Name dnOrder="1">plib_tmr1.h</Name>
+          <LogicalPath dnOrder="2">config/default/peripheral/tmr1/</LogicalPath>
+          <PhysicalPath dnOrder="3">/peripheral/tmr1/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">32D7539D9231F3C159ABECE91A0281EA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">32D7539D9231F3C159ABECE91A0281EA</UserChecksum>
+        </File>
+        <File dnOrder="28">
+          <Type dnOrder="0">HEADER</Type>
+          <Name dnOrder="1">plib_tmr1_common.h</Name>
+          <LogicalPath dnOrder="2">config/default/peripheral/tmr1/</LogicalPath>
+          <PhysicalPath dnOrder="3">/peripheral/tmr1/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">69E7C8CDAB1B32838331EE261170CEA4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">69E7C8CDAB1B32838331EE261170CEA4</UserChecksum>
         </File>
         <File dnOrder="29">
           <Type dnOrder="0">HEADER</Type>
@@ -283,8 +283,8 @@
       <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.29\atdf\PIC32MZ2048EFH064.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bootloader;bsp;bt;core;crypto;csp;gfx;gfx_apps;net;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="audio;bootloader;bsp;bt;core;crypto;csp;gfx;gfx_apps;micrium_ucos3;motor_control;net;touch;usb;"/>
     </Settings>
   </Configurator>
 </Configuration>

@@ -69,6 +69,8 @@ bool SPI3_IsBusy(void);
 
 void SPI3_CallbackRegister(SPI_CALLBACK callback, uintptr_t context);
 
+void SPI3_Set_Baudrate (uint32_t clockFrequency);
+
 /* Provide C++ Compatibility */
 #ifdef __cplusplus
 
