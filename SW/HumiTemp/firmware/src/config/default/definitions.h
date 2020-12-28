@@ -60,8 +60,10 @@
 #include "peripheral/tmr1/plib_tmr1.h"
 #include "peripheral/spi/plib_spi2.h"
 #include "peripheral/spi/plib_spi1.h"
+#include "peripheral/nvm/plib_nvm.h"
 
 /* Timer Counter Time period match values for input clock of 4096 Hz */
+#define PMS_MEASURE_WAIT_MS                     35000
 #define PERIOD_35S                              128*35
 #define PERIOD_1MIN                             7680 
 #define PERIOD_5MIN                             38400
@@ -84,6 +86,10 @@
 #define ZIGBEE_INT_GENERATED                    0x10
 #define SENSOR_INT_GENERATED                    0x20
 
+#define USD_READY_TIMEOUT_MS                    500
+#define USD_RX_TIMEOUT_MS                       100
+#define USD_INIT_TIMEOUT_MS                     10000
+
 volatile uint8_t isTmr1Expired;
 volatile uint8_t btn1_interrupt;
 volatile uint8_t btn2_interrupt;
@@ -93,8 +99,27 @@ volatile uint32_t btn2_interrupts_acc;
 volatile uint32_t btn3_interrupts_acc;
 volatile uint8_t zigbee_interrupt;
 volatile uint8_t sensor_interrupt;
-volatile uint8_t btn_test1_interrupt;
-volatile uint8_t btn_test2_interrupt;
+volatile bool btn_test1_interrupt;
+volatile bool btn_test2_interrupt;
+volatile bool PMS_Data_Sent;
+volatile bool PMS_Data_Received;
+
+typedef struct _settings_t {
+    uint8_t wakeup_time;
+    double heating_temp;
+    uint16_t ZigBee_MasterID;
+    uint8_t day;
+    uint8_t month;
+    uint16_t year;
+    uint8_t hour;
+    uint8_t minute;
+    bool SHT35_init;
+    bool ZigBee_init;
+    bool MHET_init;
+    bool PMS7003_init;
+    bool uSD_init;
+    bool LC709203F_init;
+} settings_t;
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

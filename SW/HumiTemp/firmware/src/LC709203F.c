@@ -13,20 +13,22 @@
 uint8_t LC709203F_Init(void){
     
     uint8_t ret = 0;
-    
-    if(LC709203F_Set_Operational_Mode(OPERATIONAL_MODE_VAL, true))      //Enables the device
+    if(!LC709203F_Set_Operational_Mode(OPERATIONAL_MODE_VAL, true))      //Enables the device
         ret = ret | SET_OM_ERR;   
-    if(LC709203F_Set_APA(APA_VAL, true))                                //Sets APA value and checks that it writes correctly
+    if(!LC709203F_Set_APA(APA_VAL, true))                                //Sets APA value and checks that it writes correctly
         ret = ret | SET_APA_ERR;  
-    if(LC709203F_Set_Battery_Profile(CHANGE_OF_PARAMETER_VAL, true))    //Sets Change of paramter and checks that it writes correctly
+    if(!LC709203F_Set_Battery_Profile(CHANGE_OF_PARAMETER_VAL, true))    //Sets Change of paramter and checks that it writes correctly
         ret = ret | SET_BP_ERR;
     DelayMs(1000);                                                      //Delay to let the uC drop current consumption and get better RSOC
     LC709203F_Set_Initial_RSOC(INITIAL_RSOC_VAL);                       //Configures the initial RSOC
     DelayMs(1000);                                                      //Delay to let the uC drop current consumption and get better RSOC
-    if(LC709203F_Set_I2C_Mode(GAUGE_STATUS_BIT_VAL, true))              //Enables I2C mode for the temperature
+    if(!LC709203F_Set_I2C_Mode(GAUGE_STATUS_BIT_VAL, true))              //Enables I2C mode for the temperature
         ret = ret | SET_IM_ERR;  
-    if(LC709203F_Set_Temperature(DEFAULT_TEMP, true))                   //Sets the temperature
+    if(!LC709203F_Set_Temperature(DEFAULT_TEMP, true))                   //Sets the temperature
         ret = ret | SET_TEMP_ERR;  
+    
+    if(ret)
+        DEBUG_PRINT("LC709203F Init ERR = %X", ret);
     
     return ret;
 }
@@ -38,9 +40,9 @@ uint16_t LC709203F_Get_Register_Value(uint8_t register_in){
     
     memset(lecture, 0, sizeof(lecture));
 
-    if(I2C1_WriteRead((uint16_t)GAUGE_ADDRESS, register_rd, 1, lecture, RD_MSG_BYTES_SIZE))
+    if(!(I2C1_WriteRead((uint16_t)GAUGE_ADDRESS, register_rd, 1, lecture, RD_MSG_BYTES_SIZE)))
         DEBUG_PRINT("WR LC709203F ERR NO IDLE IN GET_REG");
-    DelayMs(50);
+    while(I2C1_IsBusy());
     ret = (lecture[1]<<8 | lecture[0]);
     
     return ret;
@@ -51,18 +53,18 @@ bool LC709203F_Set_Register_Value(uint8_t register_in, uint8_t reg_val_LOW, uint
 
     uint8_t cmd_val[WR_MSG_BYTES_SIZE+1]={GAUGE_ADDRESS<<1, register_in, reg_val_LOW, reg_val_HIGH, 0};
     
-    cmd_val[WR_MSG_BYTES_SIZE] = Crc8Block(cmd_val, WR_MSG_BYTES_SIZE);
+    cmd_val[WR_MSG_BYTES_SIZE] = Crc8Block(cmd_val, WR_MSG_BYTES_SIZE, POLYNOMIAL1, 0);
     
     ret = I2C1_Write((uint16_t)GAUGE_ADDRESS, &cmd_val[1], WR_MSG_BYTES_SIZE);
-    DelayMs(50);
-    if(ret){
+    while(I2C1_IsBusy());
+    if(!ret){
         DEBUG_PRINT("WR LC709203F ERR NO IDLE IN SET_REG");
         return ret;
     }     
     
     if(check_correct_write){
         uint16_t rd = LC709203F_Get_Register_Value(register_in);
-        DelayMs(50);
+        while(I2C1_IsBusy());
         uint16_t wr_val = cmd_val[3]<<8 | cmd_val[2];
         
         if( wr_val != rd){
@@ -83,7 +85,7 @@ uint16_t LC709203F_Get_Operational_Mode(void){
 bool LC709203F_Set_Operational_Mode(uint16_t OM_value, bool check_correct_write){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(OPERATIONAL_MODE_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, check_correct_write);
+    ret = LC709203F_Set_Register_Value(OPERATIONAL_MODE_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), check_correct_write);
     
     return ret;
 }
@@ -97,7 +99,7 @@ uint16_t LC709203F_Get_APA(void){
 bool LC709203F_Set_APA(uint16_t OM_value, bool check_correct_write){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(APA_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, check_correct_write);
+    ret = LC709203F_Set_Register_Value(APA_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), check_correct_write);
     
     return ret;
 }
@@ -111,7 +113,7 @@ uint16_t LC709203F_Get_Battery_Profile(void){
 bool LC709203F_Set_Battery_Profile(uint16_t OM_value, bool check_correct_write){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(CHANGE_OF_PARAMETER_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, check_correct_write);
+    ret = LC709203F_Set_Register_Value(CHANGE_OF_PARAMETER_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), check_correct_write);
     
     return ret;
 }
@@ -119,7 +121,7 @@ bool LC709203F_Set_Battery_Profile(uint16_t OM_value, bool check_correct_write){
 bool LC709203F_Set_Initial_RSOC(uint16_t OM_value){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(CHANGE_OF_PARAMETER_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, false);
+    ret = LC709203F_Set_Register_Value(INITIAL_RSOC_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), false);
     
     return ret;
 }
@@ -133,7 +135,7 @@ uint16_t LC709203F_Get_I2C_Mode(void){
 bool LC709203F_Set_I2C_Mode(uint16_t OM_value, bool check_correct_write){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(GAUGE_STATUS_BIT_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, check_correct_write);
+    ret = LC709203F_Set_Register_Value(GAUGE_STATUS_BIT_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), check_correct_write);
     
     return ret;
 }
@@ -147,7 +149,7 @@ uint16_t LC709203F_Get_Temperature(void){
 bool LC709203F_Set_Temperature(uint16_t OM_value, bool check_correct_write){
     bool ret = false;
     
-    ret = LC709203F_Set_Register_Value(CELL_TEMPERATURE_REG, (uint8_t)OM_value, (uint8_t)OM_value>>8, check_correct_write);
+    ret = LC709203F_Set_Register_Value(CELL_TEMPERATURE_REG, (uint8_t)OM_value, (uint8_t)(OM_value>>8), check_correct_write);
     
     return ret;
 }

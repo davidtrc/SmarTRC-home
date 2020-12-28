@@ -140,7 +140,6 @@
 // *****************************************************************************
 
 
-
 /*******************************************************************************
   Function:
     void SYS_Initialize ( void *data )
@@ -159,24 +158,12 @@ void SYS_Initialize ( void* data )
   
     CLK_Initialize();
 	GPIO_Initialize();
+
     /* Configure Prefetch, Wait States and ECC */
     PRECONbits.PREFEN = 3;
     PRECONbits.PFMWS = 2;
     CFGCONbits.ECCCON = 3;
-    
-    /* Initialize global variables */
-    isTmr1Expired = 0;
-    btn1_interrupt = 0;
-    btn2_interrupt = 0;
-    btn3_interrupt = 0;
-    btn1_interrupts_acc = 0;
-    btn2_interrupts_acc = 0;
-    btn3_interrupts_acc = 0;
-    zigbee_interrupt = 0;
-    sensor_interrupt = 0;
-    btn_test1_interrupt = 0;
-    btn_test2_interrupt = 0;
-    /* End of initialization of global variables */
+
 
     I2C1_Initialize();
 
@@ -193,6 +180,10 @@ void SYS_Initialize ( void* data )
 	SPI2_Initialize();
 
 	SPI1_Initialize();
+
+
+
+
 
     EVIC_Initialize();
 

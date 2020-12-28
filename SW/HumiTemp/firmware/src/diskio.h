@@ -40,6 +40,7 @@ DRESULT disk_ioctl (BYTE pdrv, BYTE cmd, void* buff);
 #define STA_NOINIT		0x01	/* Drive not initialized */
 #define STA_NODISK		0x02	/* No medium in the drive */
 #define STA_PROTECT		0x04	/* Write protected */
+#define STA_NOTMOUNTED  0x08    /* Initialized, but not mounted */
 
 
 /* Command code for disk_ioctrl fucntion */

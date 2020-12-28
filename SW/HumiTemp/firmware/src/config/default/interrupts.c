@@ -67,10 +67,13 @@ void CHANGE_NOTICE_B_InterruptHandler( void );
 void CHANGE_NOTICE_D_InterruptHandler( void );
 void CHANGE_NOTICE_E_InterruptHandler( void );
 void CHANGE_NOTICE_F_InterruptHandler( void );
+void SPI2_RX_InterruptHandler( void );
+void SPI2_TX_InterruptHandler( void );
 void SPI3_RX_InterruptHandler( void );
 void SPI3_TX_InterruptHandler( void );
 void I2C3_BUS_InterruptHandler( void );
 void I2C3_MASTER_InterruptHandler( void );
+void NVM_InterruptHandler( void );
 
 
 
@@ -169,6 +172,11 @@ void __ISR(_I2C3_BUS_VECTOR, ipl1AUTO) I2C3_BUS_Handler (void)
 void __ISR(_I2C3_MASTER_VECTOR, ipl1AUTO) I2C3_MASTER_Handler (void)
 {
     I2C3_MASTER_InterruptHandler();
+}
+
+void __ISR(_FLASH_CONTROL_VECTOR, ipl1AUTO) FLASH_CONTROL_Handler (void)
+{
+    NVM_InterruptHandler();
 }
 
 

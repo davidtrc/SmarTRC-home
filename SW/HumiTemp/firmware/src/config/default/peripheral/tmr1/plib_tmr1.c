@@ -53,9 +53,6 @@
 
 static TMR1_TIMER_OBJECT tmr1Obj;
 
-uint32_t user_period;           //Multiple of TMR1 period. Defines when the device really wakes-up to take measures
-uint8_t wakeups_counter;
-
 void TMR1_Initialize(void)
 {
     /* Disable Timer */
@@ -75,63 +72,50 @@ void TMR1_Initialize(void)
     TMR1 = 0x0;
 
     /*Set period */
-    PR1 = 7680; //Default period = 1 min (in order to update the date)
-    
-    user_period = PR1; //Default user_period = PR1
-    wakeups_counter = 0; //0 at beginning
+    PR1 = 7680;
 
     /* Setup TMR1 Interrupt */
     TMR1_InterruptEnable();  /* Enable interrupt on the way out */
 }
+
 
 void TMR1_Start (void)
 {
     T1CONSET = _T1CON_ON_MASK;
 }
 
+
 void TMR1_Stop (void)
 {
     T1CONCLR = _T1CON_ON_MASK;
 }
+
 
 void TMR1_PeriodSet(uint16_t period)
 {
     PR1 = period;
 }
 
+
 uint16_t TMR1_PeriodGet(void)
 {
     return (uint16_t)PR1;
 }
 
-void TMR1_UserPeriodSet(uint32_t period)
-{
-    user_period = period;
-}
-
-uint32_t TMR1_UserPeriodGet(void)
-{
-    return (uint32_t)user_period;
-}
-
-void TMR1_ResetWakeupsCounter()
-{
-    wakeups_counter = 0;
-}
-
-uint8_t TMR1_WakeupsCounterGet(void)
-{
-    return (uint8_t)wakeups_counter;
-}
-
-void TMR1_WakeupsCounterIncrease(void)
-{
-    wakeups_counter++;
-}
 
 uint16_t TMR1_CounterGet(void)
 {
     return(TMR1);
+}
+
+void TMR1_CounterSet(uint16_t new_counter)
+{
+    TMR1 = new_counter;
+}
+
+void TMR1_CounterReset(void)
+{
+    TMR1 = 0x0;
 }
 
 uint32_t TMR1_FrequencyGet(void)
@@ -150,15 +134,18 @@ void TIMER_1_InterruptHandler (void)
     }
 }
 
+
 void TMR1_InterruptEnable(void)
 {
     IEC0SET = _IEC0_T1IE_MASK;
 }
 
+
 void TMR1_InterruptDisable(void)
 {
     IEC0CLR = _IEC0_T1IE_MASK;
 }
+
 
 void TMR1_CallbackRegister( TMR1_CALLBACK callback_fn, uintptr_t context )
 {

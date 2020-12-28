@@ -68,10 +68,15 @@ void EVIC_Initialize( void )
     IPC30SET = 0x400 | 0x0;  /* CHANGE_NOTICE_D:  Priority 1 / Subpriority 0 */
     IPC30SET = 0x40000 | 0x0;  /* CHANGE_NOTICE_E:  Priority 1 / Subpriority 0 */
     IPC30SET = 0x4000000 | 0x0;  /* CHANGE_NOTICE_F:  Priority 1 / Subpriority 0 */
+    IPC35SET = 0x4000000 | 0x0;  /* SPI2_RX:  Priority 1 / Subpriority 0 */
+    IPC36SET = 0x4 | 0x0;  /* SPI2_TX:  Priority 1 / Subpriority 0 */
     IPC38SET = 0x4000000 | 0x0;  /* SPI3_RX:  Priority 1 / Subpriority 0 */
     IPC39SET = 0x4 | 0x0;  /* SPI3_TX:  Priority 1 / Subpriority 0 */
+    IPC39SET = 0x40000 | 0x0;  /* UART3_RX:  Priority 1 / Subpriority 0 */
+    IPC39SET = 0x4000000 | 0x0;  /* UART3_TX:  Priority 1 / Subpriority 0 */
     IPC40SET = 0x4 | 0x0;  /* I2C3_BUS:  Priority 1 / Subpriority 0 */
     IPC40SET = 0x40000 | 0x0;  /* I2C3_MASTER:  Priority 1 / Subpriority 0 */
+    IPC41SET = 0x4000000 | 0x0;  /* FLASH_CONTROL:  Priority 1 / Subpriority 0 */
 }
 
 void EVIC_SourceEnable( INT_SOURCE source )

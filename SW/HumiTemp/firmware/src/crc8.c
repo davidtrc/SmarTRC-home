@@ -18,9 +18,7 @@
 
 #if 1   // Traditional implementation
 
-#define POLYNOMIAL    (0x1070U << 3)
-
-unsigned char Crc8(unsigned char inCrc, unsigned char inData){
+unsigned char Crc8(unsigned char inCrc, unsigned char inData, uint16_t polinomial){
     
     int i;
     unsigned short data;
@@ -30,7 +28,7 @@ unsigned char Crc8(unsigned char inCrc, unsigned char inData){
  
     for ( i = 0; i < 8; i++ ){
         if (( data & 0x8000 ) != 0 ){
-            data = data ^ POLYNOMIAL;
+            data = data ^ polinomial;
         }
             data = data << 1;
     }
@@ -65,13 +63,13 @@ unsigned char Crc8( unsigned char inCrc, unsigned char inData ){
 *   Calculates the CRC-8 used as part of SMBus over a block of memory.
 */
 
-uint8_t Crc8Block(uint8_t *data, uint8_t len ){
+uint8_t Crc8Block(uint8_t *data, uint8_t len, uint16_t polinomial, uint8_t init_val){
     
-    uint8_t crc_temp=0;
+    uint8_t crc_temp=init_val;
     
     while ( len > 0 )
     {
-        crc_temp = Crc8(crc_temp, *data++ );
+        crc_temp = Crc8(crc_temp, *data++, polinomial );
         len--;
     }
 

@@ -25,6 +25,9 @@
               <itemPath>../src/config/default/peripheral/i2c/plib_i2c_master.h</itemPath>
               <itemPath>../src/config/default/peripheral/i2c/plib_i2c3.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f8" displayName="nvm" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/nvm/plib_nvm.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
               <itemPath>../src/config/default/peripheral/spi/plib_spi_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/spi/plib_spi3.h</itemPath>
@@ -72,12 +75,17 @@
       <logicalFolder name="f6" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f10" displayName="uSD" projectFiles="true">
+      <logicalFolder name="f11" displayName="uSD" projectFiles="true">
+        <itemPath>../src/uSD.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f10" displayName="ZigBee" projectFiles="true">
+        <itemPath>../src/ZigBee.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <itemPath>p32MZ2048EFH064.ld</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -100,6 +108,9 @@
             <logicalFolder name="f1" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/default/peripheral/i2c/plib_i2c1.c</itemPath>
               <itemPath>../src/config/default/peripheral/i2c/plib_i2c3.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f8" displayName="nvm" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/nvm/plib_nvm.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="spi" projectFiles="true">
               <itemPath>../src/config/default/peripheral/spi/plib_spi3.c</itemPath>
@@ -141,7 +152,11 @@
       <logicalFolder name="f5" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.c</itemPath>
       </logicalFolder>
-      <logicalFolder name="f9" displayName="uSD" projectFiles="true">
+      <logicalFolder name="f10" displayName="uSD" projectFiles="true">
+        <itemPath>../src/uSD.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f9" displayName="ZigBee" projectFiles="true">
+        <itemPath>../src/ZigBee.c</itemPath>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
@@ -154,6 +169,7 @@
   <sourceRootList>
     <Elem>../src</Elem>
     <Elem>../../../../../../Downloads/ff14a/source</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -204,7 +220,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/PIC32MZ2048EFH064_DFP;;../src/mips"/>
+                  value="../src;../src/config/default;../src/packs/PIC32MZ2048EFH064_DFP;../src/mips"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -499,7 +515,8 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="communication.activationmode" value="nohv"/>
-        <property key="communication.interface" value=""/>
+        <property key="communication.interface"
+                  value="${communication.interface.default}"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="memories.aux" value="false"/>
@@ -516,6 +533,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/David/Desktop/SmarTRC-home/SW/HumiTemp/firmware/HumiTemp.X/debug/default/HumiTemp_ptg"/>
         <property key="programmerToGoImageName" value="HumiTemp_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -525,11 +544,11 @@
         <property key="programoptions.pgdconfig" value="pull down"/>
         <property key="programoptions.pgdresistor.value" value="4.7"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
-        <property key="programoptions.pgmspeed" value="Min"/>
+        <property key="programoptions.pgmspeed" value="Med"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveeeprom.ranges" value=""/>
-        <property key="programoptions.preserveprogram.ranges" value="1d000000-1d1fffff"/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>

@@ -6,6 +6,7 @@
 #include "definitions.h"                // SYS function prototypes
 #include "MH_ET_Live.h"
 #include "CustomTime.h"
+#include "debug.h"
 
 int MHET_Init(void) {
     
@@ -201,4 +202,20 @@ void MHET_Display_Pattern(uint8_t* pattern_buffer_black, uint8_t* pattern_buffer
     printf("2\r\n");
     MHET_Wait_Until_Idle();
     printf("3\r\n");
+}
+
+void MHET_Set_Time_And_Date(void){
+    
+}
+
+void MHET_Plot_Data(settings_t *global_settings, uint16_t pm1, uint16_t pm25, uint16_t pm10, double tempd, double humid, uint16_t gauge_RSOC){
+    DEBUG_PRINT(" pm1=%d, pm25=%d, pm10=%d, temp=%f, humi=%f, RSOC=%u", pm1, pm25, pm10, tempd, humid, gauge_RSOC);
+    DelayMs(1000);
+}
+
+void MHET_Update_ProgressBar(void){
+    static uint8_t counter = 0;
+    
+    DEBUG_PRINT("Counter =%d", counter);
+    counter ++;
 }

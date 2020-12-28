@@ -83,6 +83,10 @@ uint16_t TMR1_PeriodGet(void);
 
 uint16_t TMR1_CounterGet(void);
 
+void TMR1_CounterSet(uint16_t new_counter);
+
+void TMR1_CounterReset(void);
+
 uint32_t TMR1_FrequencyGet(void);
 
 void TMR1_InterruptEnable(void);

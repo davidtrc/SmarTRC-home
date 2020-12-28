@@ -61,6 +61,9 @@ void MHET_Set_Black_LookUp_Tables(void);
 void MHET_Set_Red_LookUp_Tables(void);
 void MHET_Sleep();
 void MHET_Display_Pattern(uint8_t* pattern_buffer_black, uint8_t* pattern_buffer_red);
+void MHET_Set_Time_And_Date(void);
+void MHET_Plot_Data(settings_t *global_settings, uint16_t pm1, uint16_t pm25, uint16_t pm10, double tempd, double humid, uint16_t gauge_RSOC);
+void MHET_Update_ProgressBar(void);
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus

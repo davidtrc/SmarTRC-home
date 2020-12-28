@@ -77,14 +77,6 @@
 #define MHET_RST_OutputEnable()      (TRISECLR = (1<<7))
 #define MHET_RST_InputEnable()       (TRISESET = (1<<7))
 #define MHET_RST_PIN                  GPIO_PIN_RE7
-/*** Macros for MHET_CS pin ***/
-#define MHET_CS_Set()               (LATGSET = (1<<9))
-#define MHET_CS_Clear()             (LATGCLR = (1<<9))
-#define MHET_CS_Toggle()            (LATGINV= (1<<9))
-#define MHET_CS_Get()               ((PORTG >> 9) & 0x1)
-#define MHET_CS_OutputEnable()      (TRISGCLR = (1<<9))
-#define MHET_CS_InputEnable()       (TRISGSET = (1<<9))
-#define MHET_CS_PIN                  GPIO_PIN_RG9
 /*** Macros for MICROSD_SW pin ***/
 #define MICROSD_SW_Set()               (LATBSET = (1<<4))
 #define MICROSD_SW_Clear()             (LATBCLR = (1<<4))
