@@ -1,21 +1,22 @@
 /*******************************************************************************
-  Non-Volatile Memory Controller(NVM) PLIB.
+  TMR1 Peripheral Library Interface Source File
 
-  Company:
+  Company
     Microchip Technology Inc.
 
-  File Name:
-    plib_nvm.h
+  File Name
+    plib_tmr1.c
 
-  Summary:
-    Interface definition of NVM Plib.
+  Summary
+    TMR1 peripheral library source file.
 
-  Description:
-    This file defines the interface for the NVM Plib.
-    It allows user to Program, Erase and lock the on-chip Non Volatile Flash
-    Memory.
+  Description
+    This file implements the interface to the TMR1 peripheral library.  This
+    library provides access to and control of the associated peripheral
+    instance.
 
 *******************************************************************************/
+
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
@@ -41,68 +42,104 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef PLIB_NVM_H
-#define PLIB_NVM_H
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
 
-#include "device.h"     // For device registers and uint32_t
-#include <stdbool.h>    // For bool
+#include "device.h"
+#include "plib_tmr1.h"
 
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
- extern "C" {
-#endif
+static TMR1_TIMER_OBJECT tmr1Obj;
 
-// DOM-IGNORE-END
-
-#define NVM_FLASH_START_ADDRESS    (0x9d000000U)
-#define NVM_FLASH_SIZE             (0x200000U)
-#define NVM_FLASH_ROWSIZE          (2048U)
-#define NVM_FLASH_PAGESIZE         (16384U)
-
-
-typedef enum
+void TMR1_Initialize(void)
 {
-    /* No error */
-    NVM_ERROR_NONE = 0x0,
+    /* Disable Timer */
+    T1CONCLR = _T1CON_ON_MASK;
 
-    /* NVM write error */
-    NVM_ERROR_WRITE = _NVMCON_WRERR_MASK,
+    /*
+    SIDL = 0
+    TWDIS = 0
+    TGATE = 1
+    TCKPS = 3
+    TSYNC = 0
+    TCS = 1
+    */
+    T1CONSET = 0xb2;
 
-    /* NVM Low Voltage Detect error */
-    NVM_ERROR_LOWVOLTAGE = _NVMCON_LVDERR_MASK,
+    /* Clear counter */
+    TMR1 = 0x0;
 
-} NVM_ERROR;
+    /*Set period */
+    PR1 = 7680;
 
-typedef void (*NVM_CALLBACK)(uintptr_t context);
-
-void NVM_Initialize( void );
-
-bool NVM_Read( uint32_t *data, uint32_t length, const uint32_t address );
-
-bool NVM_WordWrite(uint32_t data, uint32_t address);
-
-bool NVM_QuadWordWrite(uint32_t *data, uint32_t address);
-
-bool NVM_RowWrite(uint32_t *data, uint32_t address);
-
-bool NVM_PageErase(uint32_t address);
-
-NVM_ERROR NVM_ErrorGet( void );
-
-bool NVM_IsBusy( void );
-
-void NVM_CallbackRegister ( NVM_CALLBACK callback, uintptr_t context );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
+    /* Setup TMR1 Interrupt */
+    TMR1_InterruptEnable();  /* Enable interrupt on the way out */
 }
-#endif
 
-// DOM-IGNORE-END
-#endif // PLIB_NVM_H
+
+void TMR1_Start (void)
+{
+    T1CONSET = _T1CON_ON_MASK;
+}
+
+
+void TMR1_Stop (void)
+{
+    T1CONCLR = _T1CON_ON_MASK;
+}
+
+
+void TMR1_PeriodSet(uint16_t period)
+{
+    PR1 = period;
+}
+
+
+uint16_t TMR1_PeriodGet(void)
+{
+    return (uint16_t)PR1;
+}
+
+
+uint16_t TMR1_CounterGet(void)
+{
+    return(TMR1);
+}
+
+uint32_t TMR1_FrequencyGet(void)
+{
+    return (128);
+}
+
+void TIMER_1_InterruptHandler (void)
+{
+    uint32_t status = IFS0bits.T1IF;
+    IFS0CLR = _IFS0_T1IF_MASK;
+
+    if((tmr1Obj.callback_fn != NULL))
+    {
+        tmr1Obj.callback_fn(status, tmr1Obj.context);
+    }
+}
+
+
+void TMR1_InterruptEnable(void)
+{
+    IEC0SET = _IEC0_T1IE_MASK;
+}
+
+
+void TMR1_InterruptDisable(void)
+{
+    IEC0CLR = _IEC0_T1IE_MASK;
+}
+
+
+void TMR1_CallbackRegister( TMR1_CALLBACK callback_fn, uintptr_t context )
+{
+    /* - Save callback_fn and context in local memory */
+    tmr1Obj.callback_fn = callback_fn;
+    tmr1Obj.context = context;
+}

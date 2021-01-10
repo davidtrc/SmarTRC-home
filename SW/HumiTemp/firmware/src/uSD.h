@@ -8,7 +8,11 @@ bool init_uSD(void);
 
 DSTATUS uSD_Get_Status(void);
 
-bool Load_SD_DDBB(settings_t *global_settings);
+FRESULT uSD_Open_File(char *filename, FIL file, BYTE mode);
+
+FRESULT uSD_Close_File(FIL* file);
+
+bool uSD_Check_If_File_Exists(char *filename);
 
     /* Provide C++ Compatibility */
 #ifdef __cplusplus

@@ -30,6 +30,8 @@
  * MICROSD -> SPI3
  * PMS7003 -> UART3
  * STDIO -> UART2
+ * 45 rd11 sdo1
+ * 11 rb5 sdo1 sdi 1
  */
 
 #include <stddef.h>                     // Defines NULL
@@ -51,8 +53,10 @@
 #include "debug.h"
 #include "diskio.h"
 #include "ff.h"
+#include "bootloader.h"
+#include "settings.h"
 
-settings_t global_settings;
+#define APP_IMAGE_FILE_NAME     "image.hex"
 /**** TODO ******
  *Drivers pantalla (estudiar composicion barra superior con hora y bateria, al medio lo importante. Usar refresco parcial)
  *Modulo ZigBee
@@ -116,7 +120,7 @@ static void measurementRoutine(void)
     SHT_Get_Temp_and_Humidity(&tempd, &humid);
     
     gauge_RSOC = LC709203F_Get_RSOC();
-    MHET_Plot_Data(&global_settings, pm1, pm25, pm10, tempd, humid, gauge_RSOC);
+    MHET_Plot_Data(pm1, pm25, pm10, tempd, humid, gauge_RSOC);
 }
 
 static void setPeripherals_DeepSleep(bool PMS_DeepSleep)
@@ -141,6 +145,10 @@ bool manage_Interruptions(uint8_t wakeup_cause)
     if(wakeup_cause & BTN1_INT_GENERATED){
         //Analizar si se int de 1 min o la de 1 min*x = tiempo de medidas fijado por usuario
         //El tiempo del usuario debería guardarse en la SD en un archivo de conf
+        bootloader_Trigger();
+        bootloader_TriggerReset();
+        btn1_interrupt = false;
+        //btn1_interrupts_acc = 0;
     }
     
     if(wakeup_cause & BTN2_INT_GENERATED){
@@ -198,15 +206,42 @@ int main (void)
     bool first_time = true;
     uint32_t tStart = 0;
     uint16_t gauge_RSOC = 0;
-    uint16_t pm1, pm25, pm10 = 0;
+    uint16_t pm1 = 0;
+    uint16_t pm25 = 0;
+    uint16_t pm10 = 0;
     double tempd, humid = 0;
-    
     uint8_t LC709203F_init = 0;
        
     /* Initialize all modules */
     SYS_Initialize (NULL);
     
     printf("Starting HumiTemp\r\n");
+    
+    /* START OF uSD initialization*/
+        set_uSD_Init_Settings(init_uSD());
+    /* END uSD initialization*/
+    
+    /* Checks if there is a pending update */
+    DEBUG_PRINT("Checking if %s exists", APP_IMAGE_FILE_NAME);
+    if(uSD_Check_If_File_Exists(APP_IMAGE_FILE_NAME)){
+        DEBUG_PRINT("File exists. Rebooting in bootloader");
+        DelayMs(500);
+        bootloader_Trigger();               //Set special values in RAM, so bootloader can read them and start update
+        bootloader_TriggerReset();          //RESET (Jump to bootloader)
+    } else {
+        DEBUG_PRINT("File doesnt exists. Regular boot");
+    }
+    
+    /* START OF settings initialization*/
+        if(is_Settings_First_Boot()){
+            DEBUG_PRINT("First boot. Settings set to defaults");
+            //set_Default_NVM_Settings(); 
+        } else {
+            //load_NVM_Settings();
+        }
+        set_Default_Settings(); //Non-NVM stored settings (date) are set to default every boot
+    /* END OF settings initialization*/
+    
     
     /* Enable test buttons interruptions and callbacks */
     GPIO_PinInterruptCallbackRegister(BTN_TST_1_PIN, SW1_User_Handler, 0);
@@ -227,21 +262,19 @@ int main (void)
     LED_TEST_2_Set();   //Inverted logic, turn off TEST LEDS 2
     
     /* START MH-ET LIVE initialization*/
-        //global_settings.MHET_init = MHET_Init();
-        //if(global_settings.PMS7003_init)
-            //MHET_Display_Pattern(gImage_black, gImage_red); //Welcome message
-        //Leave in deep_sleep
+        set_MHET_Init_Settings(MHET_Init());
+        if(get_MHET_Init_Settings())
+            MHET_Display_Welcome_Message();         //Welcome message
+        MHET_Sleep();                               //Leave in deep_sleep
     /* END MH-ET LIVE initialization*/
     
     /* START OF PMS initialization*/
-        global_settings.PMS7003_init = PMS_Init();
-        if(global_settings.PMS7003_init)
-            tStart = ReadCoreTimer();     //Start timer to count 35 sec
+        set_PMS7003_Init_Settings(PMS_Init());
+        if(get_PMS7003_Init_Settings()){
+            PMS_Set_Sleep_Mode();
+            PMS_Deactivation();
+        }
     /* END OF PMS initialization*/
-    
-    /* START OF uSD initialization*/
-        global_settings.uSD_init = init_uSD();
-    /* END uSD initialization*/
     
     /* START OF ZigBee initialization*/
         ZIGBEE_RST_Set();
@@ -249,46 +282,72 @@ int main (void)
         DelayMs(500);
         uint8_t zigbee_reg = ZigBee_Get_Short_Register_Value(ZIGBEE_TXMCR_REG);
         DEBUG_PRINT("Zigbee_reg=%d", zigbee_reg);
+        
+        DelayMs(500);
+        zigbee_reg = ZigBee_Get_Short_Register_Value(ZIGBEE_TXMCR_REG);
+        DEBUG_PRINT("Zigbee_reg=%d", zigbee_reg);
+        PORTCINV |= 0x02;
+        DelayMs(10);
+        PORTCINV = 0x02;
+        DelayMs(10);
+        PORTCINV = 0x02;
+        DelayMs(10);
+        PORTCINV = 0x02;
+        DelayMs(10);
+        PORTCINV = 0x02;
+        DelayMs(10);
+        PORTCINV = 0x02;
         //ZigBee_Init();
         //ZigBee_DeepSleep();
     /* END ZigBee initialization*/
     
     /* START OF SHT35 initialization*/
-        global_settings.SHT35_init = SHT_Init();
+        set_SHT35_Init_Settings(SHT_Init());
     /* END OF SHT35 initialization*/
     
     /* START OF LC709203F initialization */
         LC709203F_init = LC709203F_Init();         //Must be done with everything off: ZigBee, uSD, MHET, PSM and temp/humi sensor
         if(!LC709203F_init)
-            global_settings.LC709203F_init = true;
+            set_LC709203F_Init_Settings(true);
     /* END OF LC709203F initialization */
-   
+        
+    /* Start first particles measurement (35 seconds to take the measure)*/
+        if(get_PMS7003_Init_Settings()){
+            PMS_Activation();
+            PMS_Wake_Up();
+            PMS_Set_Passive_Mode();
+            tStart = ReadCoreTimer();     //Start timer to count 35 sec
+        }
+
     while(true){
         // Maintain state machines of all polled MPLAB Harmony modules. 
         SYS_Tasks();
         
         if(first_time){
-            Load_SD_DDBB(&global_settings);
             uint32_t tWait = ( GetSystemClock() / 2000 ) * PMS_MEASURE_WAIT_MS;
-            if(global_settings.MHET_init){
-                if(global_settings.PMS7003_init){
+            set_MHET_Init_Settings(true); //Quitar cuando MH-ET este implementado
+            if(get_MHET_Init_Settings()){
+                if(get_PMS7003_Init_Settings()){
                     while( ( ReadCoreTimer() - tStart ) < tWait ){
                         DelayMs(1000);
                         MHET_Update_ProgressBar();
+                        printf("acc=%d", btn1_interrupts_acc);
+                        wakeup_cause = get_WakeUp_Cause();
+                        manage_Interruptions(wakeup_cause);
                     }     
                 }
             }
-            if(global_settings.PMS7003_init){
+            if(get_PMS7003_Init_Settings()){
                 PMS_Passive_Read(&pm1, &pm25, &pm10);
                 PMS_Set_Sleep_Mode();
             }
             PMS_Deactivation();
-            if(global_settings.SHT35_init)
+            if(get_SHT35_Init_Settings())
                 SHT_Get_Temp_and_Humidity(&tempd, &humid);                          //Get initial measures
-            if(global_settings.LC709203F_init)
+            if(get_LC709203F_Init_Settings())
                 gauge_RSOC = LC709203F_Get_RSOC();
-            if(global_settings.MHET_init)
-                MHET_Plot_Data(&global_settings, pm1, pm25, pm10, tempd, humid, gauge_RSOC);
+            if(get_MHET_Init_Settings())
+                MHET_Plot_Data(pm1, pm25, pm10, tempd, humid, gauge_RSOC);
             
             first_time = false;
             TMR1_CounterReset();                                                //Reset wakeup timer
@@ -305,7 +364,16 @@ int main (void)
             DEBUG_PRINT("Zigbee_reg=%d", zigbee_reg);
         }
         
-        if(global_settings.MHET_init)
+        if(get_ZigBee_Connected_Settings()){
+            //ZigBee_Send_Heater_Temp();
+            //ZigBee_Send_Room_Temp();
+            //ZigBee_Send_Room_Humidity();
+            //ZigBee_Send_Particles_Concentration();
+            //ZigBee_Get_Local_Time(structura tiempo);
+            //set_Settings_Date(uint8_t hour, uint8_t minute, uint8_t month, uint16_t year);
+        }
+        
+        if(get_MHET_Init_Settings())
             MHET_Set_Time_And_Date();
         
         DEBUG_PRINT("Sleep Mode\r\n");

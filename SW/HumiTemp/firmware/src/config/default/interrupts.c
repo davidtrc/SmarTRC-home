@@ -154,6 +154,16 @@ void __ISR(_CHANGE_NOTICE_F_VECTOR, ipl1AUTO) CHANGE_NOTICE_F_Handler (void)
     CHANGE_NOTICE_F_InterruptHandler();
 }
 
+void __ISR(_SPI2_RX_VECTOR, ipl1AUTO) SPI2_RX_Handler (void)
+{
+    SPI2_RX_InterruptHandler();
+}
+
+void __ISR(_SPI2_TX_VECTOR, ipl1AUTO) SPI2_TX_Handler (void)
+{
+    SPI2_TX_InterruptHandler();
+}
+
 void __ISR(_SPI3_RX_VECTOR, ipl1AUTO) SPI3_RX_Handler (void)
 {
     SPI3_RX_InterruptHandler();

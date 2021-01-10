@@ -49,13 +49,19 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include "bootloader/bootloader.h"
+#include "peripheral/i2c/plib_i2c1.h"
+#include "peripheral/uart/plib_uart3.h"
+#include "peripheral/i2c/plib_i2c3.h"
 #include "peripheral/uart/plib_uart2.h"
 #include "peripheral/spi/plib_spi3.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
+#include "peripheral/tmr1/plib_tmr1.h"
+#include "peripheral/spi/plib_spi2.h"
+#include "peripheral/spi/plib_spi1.h"
 #include "peripheral/nvm/plib_nvm.h"
+#include "bootloader/bootloader.h"
 #include "app.h"
 
 // DOM-IGNORE-BEGIN
@@ -113,43 +119,8 @@ extern "C" {
 
 void SYS_Initialize( void *data );
 
-// *****************************************************************************
-/* System Tasks Function
 
-Function:
-    void SYS_Tasks ( void );
 
-Summary:
-    Function that performs all polled system tasks.
-
-Description:
-    This function performs all polled system tasks by calling the state machine
-    "tasks" functions for all polled modules in the system, including drivers,
-    services, middleware and applications.
-
-Precondition:
-    The SYS_Initialize function must have been called and completed.
-
-Parameters:
-    None.
-
-Returns:
-    None.
-
-Example:
-    <code>
-    SYS_Initialize ( NULL );
-
-    while ( true )
-    {
-        SYS_Tasks ( );
-    }
-    </code>
-
-Remarks:
-    If the module is interrupt driven, the system will call this routine from
-    an interrupt context.
-*/
 
 void SYS_Tasks ( void );
 

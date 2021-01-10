@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f12" displayName="Bootloader" projectFiles="true">
+        <itemPath>../src/bootloader.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f8" displayName="CommonLibs" projectFiles="true">
         <itemPath>../src/crc8.h</itemPath>
         <itemPath>../src/debug.h</itemPath>
@@ -61,6 +64,8 @@
       </logicalFolder>
       <logicalFolder name="f7" displayName="MH_ET_Live" projectFiles="true">
         <itemPath>../src/MH_ET_Live.h</itemPath>
+        <itemPath>../src/EPDPaint.h</itemPath>
+        <itemPath>../src/fonts.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1"
@@ -71,6 +76,9 @@
       </logicalFolder>
       <logicalFolder name="f4" displayName="PMS7003" projectFiles="true">
         <itemPath>../src/PMS7003.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f13" displayName="Settings" projectFiles="true">
+        <itemPath>../src/settings.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f6" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.h</itemPath>
@@ -90,6 +98,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f11" displayName="Bootloader" projectFiles="true">
+        <itemPath>../src/bootloader.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f7" displayName="CommonLibs" projectFiles="true">
         <itemPath>../src/crc8.c</itemPath>
       </logicalFolder>
@@ -145,9 +156,18 @@
       </logicalFolder>
       <logicalFolder name="f6" displayName="MH_ET_Live" projectFiles="true">
         <itemPath>../src/MH_ET_Live.c</itemPath>
+        <itemPath>../src/EPDPaint.c</itemPath>
+        <itemPath>../src/font24.c</itemPath>
+        <itemPath>../src/font20.c</itemPath>
+        <itemPath>../src/font16.c</itemPath>
+        <itemPath>../src/font12.c</itemPath>
+        <itemPath>../src/font8.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="PMS7003" projectFiles="true">
         <itemPath>../src/PMS7003.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f12" displayName="Settings" projectFiles="true">
+        <itemPath>../src/settings.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="SHT35" projectFiles="true">
         <itemPath>../src/SHT35.c</itemPath>
@@ -220,7 +240,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/PIC32MZ2048EFH064_DFP;../src/mips"/>
+                  value="../src;../src/config/default;../src/packs/PIC32MZ2048EFH064_DFP;;../src/mips"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

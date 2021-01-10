@@ -5,71 +5,96 @@
 
 #include "definitions.h"                // SYS function prototypes
 #include "MH_ET_Live.h"
+#include "EPDPaint.h"
 #include "CustomTime.h"
 #include "debug.h"
+#include "settings.h"
 
-int MHET_Init(void) {
+#define EPD_WIDTH               200
+#define EPD_HEIGHT              200
+
+unsigned char image[5000];
+
+bool MHET_Init(void) {
     
-    uint8_t POWER_SETTING_CMD[4] = {0x07, 0x00, 0x08, 0x00};
-    uint8_t BOOSTER_CMD[3] = {0x07, 0x07, 0x07};
-    uint8_t TCON_RES_CMD[3] = {WIDTH, (HEIGHT>>8), HEIGHT};
-   
+    uint8_t DRV_OUT_CONTROL[3] = {(EPD_HEIGHT-1), ((EPD_HEIGHT - 1) >> 8), 0x01};
+    uint8_t DATA_NTRY_MD[1] = {0X01}; //Counter update in X direction. Y decrement, X increment
+    uint8_t RAM_X_ADDRESS_CMD[2] = {0x00, 0x18};
+    uint8_t RAM_Y_ADDRESS_CMD[4] = {0xC7, 0x00, 0x00, 0x00};
+    uint8_t BORDER_WAVEFORM_CMD[1] = {0X01};
+    uint8_t DISPLAY_UPDATE_CONTROL_2_CMD[1] = {0XB1};
+    uint8_t SET_RAM_X_COUNTER_CMD[1] = {0X00};
+    uint8_t SET_RAM_Y_COUNTER_CMD[2] = {0xC7, 0X00};
+    //uint8_t CMD_18_VAL[1] = {0X80};
+    
+    if(get_MHET_Init_Settings())
+        return false;
+    
     MHET_Reset();
+
+    MHET_ReadBusy();
+    MHET_Send_CMD(SW_RESET);
+    MHET_ReadBusy();
+
+    MHET_Send_CMD(DRIVER_OUTPUT_CONTROL);
+    MHET_Send_Data(&DRV_OUT_CONTROL, sizeof(DRV_OUT_CONTROL));
     
-    MHET_Send_CMD(POWER_SETTING);
-    MHET_Send_Data(POWER_SETTING_CMD, 4);
-
-    MHET_Send_CMD(BOOSTER_SOFT_START);
-    MHET_Send_Data(BOOSTER_CMD, 3);
+    MHET_Send_CMD(DATA_ENTRY_MODE);
+    MHET_Send_Data(&DATA_NTRY_MD, 1);
     
-    MHET_Send_CMD(POWER_ON);
-    //printf("1\r\n");
-    MHET_Wait_Until_Idle();
-    //printf("2\r\n");
-    MHET_Send_CMD(PANEL_SETTING);
-    MHET_Send_Byte(0xCF);
+    MHET_Send_CMD(SET_RAM_X_ADDRESS_START_END_POS);
+    MHET_Send_Data(&RAM_X_ADDRESS_CMD, sizeof(RAM_X_ADDRESS_CMD));
 
-    MHET_Send_CMD(VCOM_AND_DATA_INTERVAL_SETTING);
-    MHET_Send_Byte(0x17);
+    MHET_Send_CMD(SET_RAM_Y_ADDRESS_START_END_POS);
+    MHET_Send_Data(&RAM_Y_ADDRESS_CMD, sizeof(RAM_Y_ADDRESS_CMD));
+    
+    MHET_Send_CMD(BORDER_WAVEFORM_CONTROL);
+    MHET_Send_Data(&BORDER_WAVEFORM_CMD, sizeof(BORDER_WAVEFORM_CMD));
 
-    MHET_Send_CMD(PLL_CONTROL);
-    MHET_Send_Byte(0x39);
+    //MHET_Send_CMD(CMD_18);
+    //MHET_Send_Data(&CMD_18_VAL, sizeof(CMD_18_VAL));
 
-    MHET_Send_CMD(TCON_RESOLUTION);
-    MHET_Send_Data(TCON_RES_CMD, 3);
+    MHET_Send_CMD(DISPLAY_UPDATE_CONTROL_2); //Load Temperature and waveform setting.
+    MHET_Send_Data(&DISPLAY_UPDATE_CONTROL_2_CMD, sizeof(DISPLAY_UPDATE_CONTROL_2_CMD));
+    
+    MHET_Send_CMD(MASTER_ACTIVATION);
 
-    MHET_Send_CMD(VCM_DC_SETTING_REGISTER);
-    MHET_Send_Byte(0x30);//0E
+    MHET_Send_CMD(SET_RAM_X_COUNTER); //set RAM x address count to 0;
+    MHET_Send_Data(&SET_RAM_X_COUNTER_CMD, sizeof(SET_RAM_X_COUNTER_CMD));
+    
+    MHET_Send_CMD(SET_RAM_Y_COUNTER); //set RAM y address count to 0X199;
+    MHET_Send_Data(&SET_RAM_Y_COUNTER_CMD, sizeof(SET_RAM_Y_COUNTER_CMD));
 
-    MHET_Set_Black_LookUp_Tables();
-    MHET_Set_Red_LookUp_Tables();
-    //printf("3\r\n");
-    return 0;
+    MHET_ReadBusy();
+    
+    Paint_Init(image, 0, 0);
+    
+    return true;
 }
 
-void MHET_Reset(){
-    
-    if(MHET_RST_Get() == 1){
-        MHET_RST_Toggle();
-    }
-    
-    DelayMs(3000);
-    
-    if(MHET_RST_Get() == 0){
-        MHET_RST_Toggle();
-    }
-    
+void MHET_Reset(void){
+    MHET_RST_Set();
+    DelayMs(200);
+    MHET_RST_Clear();
+    DelayMs(5);
+    MHET_RST_Set();
     DelayMs(200);
 }
 
 bool MHET_Send_CMD(uint8_t TransmitData){
     
     uint8_t pTransmitData[1] = {TransmitData};
+    bool ret;
             
     if(MHET_DC_Get() == 1){
         MHET_DC_Toggle();
     }
-    return (SPI2_Write(pTransmitData, CMD_SIZE));
+    ret = SPI2_Write(pTransmitData, CMD_SIZE);
+    if(MHET_DC_Get() == 0){
+        MHET_DC_Toggle();
+    }
+    
+    return ret;
 }
 
 bool MHET_Send_Data(void* pTransmitData, size_t txSize){
@@ -89,126 +114,169 @@ bool MHET_Send_Byte(uint8_t TransmitData){
     return (SPI2_Write(pTransmitData, 1));
 }
 
-void MHET_Wait_Until_Idle(void){
-    while(MHET_BUSY_Get() == 0) {    //LOW: busy, HIGH: idle
-        DelayMs(100);
+void MHET_ReadBusy(void){    
+    uint32_t tWait = ( GetSystemClock() / 2000 ) * READBUSY_TIMEOUT_MS; //Delay for timeout
+    uint32_t tStart = ReadCoreTimer(); 
+    uint32_t timeElapsed = 0;
+    
+    while( (MHET_BUSY_Get() == 0) && (timeElapsed < tWait)) {    //LOW: busy, HIGH: idle
+        timeElapsed = ReadCoreTimer() - tStart;
     }      
+    if(timeElapsed>=tWait){
+        printf("MH-ET BUSY NOT RELEASED IN %d MS\r", tWait);
+    }
 }
 
-void MHET_Set_Black_LookUp_Tables(void) {
-
-    uint8_t lut_vcom0[] = { 0x0E, 0x14, 0x01, 0x0A, 0x06, 0x04, 0x0A, 0x0A, 0x0F, 0x03, 0x03, 0x0C, 0x06, 0x0A, 0x00 };
-    uint8_t lut_w[]     = { 0x0E, 0x14, 0x01, 0x0A, 0x46, 0x04, 0x8A, 0x4A, 0x0F, 0x83, 0x43, 0x0C, 0x86, 0x0A, 0x04 };
-    uint8_t lut_b[]     = { 0x0E, 0x14, 0x01, 0x8A, 0x06, 0x04, 0x8A, 0x4A, 0x0F, 0x83, 0x43, 0x0C, 0x06, 0x4A, 0x04 };
-    uint8_t lut_g1[]    = { 0x8E, 0x94, 0x01, 0x8A, 0x06, 0x04, 0x8A, 0x4A, 0x0F, 0x83, 0x43, 0x0C, 0x06, 0x0A, 0x04 };
-    uint8_t lut_g2[]    = { 0x8E, 0x94, 0x01, 0x8A, 0x06, 0x04, 0x8A, 0x4A, 0x0F, 0x83, 0x43, 0x0C, 0x06, 0x0A, 0x04 };
-
-    MHET_Send_CMD(0x20);         //g vcom
-    MHET_Send_Data(lut_vcom0, 15);
+void MHET_TurnOnDisplay(void){
+    uint8_t cmd[1] = {0xF7};
     
-    MHET_Send_CMD(0x21);         //g ww --
-    MHET_Send_Data(lut_w, 15);
-    
-    MHET_Send_CMD(0x22);         //g bw r
-    MHET_Send_Data(lut_b, 15);
-    
-    MHET_Send_CMD(0x23);         //g wb w
-    MHET_Send_Data(lut_g1, 15);
-    
-    MHET_Send_CMD(0x24);         //g bb b
-    MHET_Send_Data(lut_g2, 15);
-    
-}
-
-void MHET_Set_Red_LookUp_Tables(void) {
-
-    uint8_t lut_vcom1[] = { 0x03, 0x1D, 0x01, 0x01, 0x08, 0x23, 0x37, 0x37, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-    uint8_t lut_red0[]  = { 0x83, 0x5D, 0x01, 0x81, 0x48, 0x23, 0x77, 0x77, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-    uint8_t lut_red1[]  = { 0x03, 0x1D, 0x01, 0x01, 0x08, 0x23, 0x37, 0x37, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-
-    MHET_Send_CMD(0x25);
-    MHET_Send_Data(lut_vcom1, 15);
-
-    MHET_Send_CMD(0x26);
-    MHET_Send_Data(lut_red0, 15);
+    MHET_Send_CMD(0x22);                //DISPLAY_UPDATE_CONTROL_2
+    MHET_Send_Data(&cmd[0], 1);
+    MHET_Send_CMD(0x20);                //MASTER_ACTIVATION
         
-    MHET_Send_CMD(0x27);
-    MHET_Send_Data(lut_red1, 15);
+    MHET_ReadBusy();
 }
 
-/**
- *  @brief: After this command is transmitted, the chip would enter the 
- *          deep-sleep mode to save power. 
- *          The deep sleep mode would return to standby by hardware reset. 
- *          The only one parameter is a check code, the command would be
- *          executed if check code = 0xA5. 
- *          You can use UC8154c_200x200::Init() to awaken
- */
-void MHET_Sleep() {
+void MHET_TurnOnDisplayPart(void){
+    uint8_t cmd[1] = {0xFF};
     
-    uint8_t POWER_CMD[4] = {0x02, 0x00, 0x00, 0x00};
-    
-    MHET_Send_CMD(VCOM_AND_DATA_INTERVAL_SETTING);
-    MHET_Send_Byte(0x17);
-    
-    MHET_Send_CMD(VCM_DC_SETTING_REGISTER);         //to solve Vcom drop
-    MHET_Send_Byte(0x00);
-    
-    MHET_Send_CMD(POWER_SETTING);         //power setting
-    MHET_Send_Data(POWER_CMD, 4);        //gate switch to external
-    
-    MHET_Wait_Until_Idle();
-    
-    MHET_Send_CMD(POWER_OFF);         //power off
+    MHET_Send_CMD(0x22);                //DISPLAY_UPDATE_CONTROL_2
+    MHET_Send_Data(&cmd[0], 1);
+    MHET_Send_CMD(0x20);                //MASTER_ACTIVATION
+        
+    MHET_ReadBusy();
 }
 
-void MHET_Display_Pattern(uint8_t* pattern_buffer_black, uint8_t* pattern_buffer_red) {
+void MHET_Clear(uint8_t color){
+    
+    uint8_t i;
+    uint8_t j;
+    
+    uint8_t data[1] = {color};
+    
+    MHET_Send_CMD(0x24);
+    
+    for(j=0; j<EPD_HEIGHT; j++){
+        for(i=0; i<(uint8_t)(EPD_WIDTH/8); i++){
+            MHET_Send_Data(&data[0], 1);
+        }
+    }
+    
+    MHET_TurnOnDisplay();
+}
 
-    uint8_t temp;
-    int i = 0;
-    int bit = 0;
-    printf("0\r\n");
-    if (pattern_buffer_black != NULL) {
-        MHET_Send_CMD(DATA_START_TRANSMISSION_1);
-        DelayMs(2);
-        for (i = 0; i < WIDTH * HEIGHT / 8; i++) {
-            temp = 0x00;
-            for (bit = 0; bit < 4; bit++) {
-                if ((pattern_buffer_black[i] & (0x80 >> bit)) != 0) {
-                    temp |= 0xC0 >> (bit * 2);
-                }
-            }
-            MHET_Send_Byte(temp);
-            temp = 0x00;
-            for (bit = 4; bit < 8; bit++) {
-                if ((pattern_buffer_black[i] & (0x80 >> bit)) != 0) {
-                    temp |= 0xC0 >> ((bit - 4) * 2);
-                }
-            }
-            MHET_Send_Byte(temp);
+
+/*  
+void MHET_GetBuffer(uint8_t *image){
+    
+}      
+    def getbuffer(self, image):
+        buf = [0xFF] * (int(self.width/8) * self.height)
+        image_monocolor = image.convert('1')
+        imwidth, imheight = image_monocolor.size
+        pixels = image_monocolor.load()
+        if(imwidth == self.width and imheight == self.height):
+            logging.debug("Horizontal")
+            for y in range(imheight):
+                for x in range(imwidth):
+                    # Set the bits for the column of pixels at the current position.
+                    if pixels[x, y] == 0:
+                        buf[int((x + y * self.width) / 8)] &= ~(0x80 >> (x % 8))
+        elif(imwidth == self.height and imheight == self.width):
+            logging.debug("Vertical")
+            for y in range(imheight):
+                for x in range(imwidth):
+                    newx = y
+                    newy = self.height - x - 1
+                    if pixels[x, y] == 0:
+                        buf[int((newx + newy*self.width) / 8)] &= ~(0x80 >> (y % 8))
+        return buf
+*/
+
+void MHET_Display(void){
+    uint8_t i = 0;
+    uint8_t j = 0;
+    
+    MHET_Send_CMD(MHET_WRITE_RAM);
+    for(j=0; j<EPD_HEIGHT; j++){
+        for(i=0; i<(uint8_t)(EPD_WIDTH/8); i++){
+            MHET_Send_Data(&image[i + j * (uint8_t)(EPD_WIDTH/8)], 1);
         }
-        DelayMs(2);
     }
-    printf("1\r\n");
-    if (pattern_buffer_red != NULL) {
-        MHET_Send_CMD(DATA_START_TRANSMISSION_2);
-        DelayMs(2);
-        for (i = 0; i < WIDTH * HEIGHT / 8; i++) {
-            MHET_Send_Byte(pattern_buffer_red[i]);
+    
+    MHET_TurnOnDisplay();
+}
+
+void MHET_DisplayPartBaseImage(void){
+    uint8_t i = 0;
+    uint8_t j = 0;
+    
+    MHET_Send_CMD(MHET_WRITE_RAM);
+    for(j=0; j<EPD_HEIGHT; j++){
+        for(i=0; i<(uint8_t)(EPD_WIDTH/8); i++){
+            MHET_Send_Data(&image[i + j * (uint8_t)(EPD_WIDTH/8)], 1);
         }
-        DelayMs(2);
     }
-    MHET_Send_CMD(DISPLAY_REFRESH);
-    printf("2\r\n");
-    MHET_Wait_Until_Idle();
-    printf("3\r\n");
+    
+    MHET_Send_CMD(MHET_CMD_26);
+    for(j=0; j<EPD_HEIGHT; j++){
+        for(i=0; i<(uint8_t)(EPD_WIDTH/8); i++){
+            MHET_Send_Data(&image[i + j * (uint8_t)(EPD_WIDTH/8)], 1);
+        }
+    }    
+
+    MHET_TurnOnDisplayPart();
+}
+
+void MHET_DisplayPart(void){
+    
+    uint8_t data[1] = {0x80};
+    uint8_t i = 0;
+    uint8_t j = 0;
+    
+    MHET_RST_Clear();
+    DelayMs(10);
+    MHET_RST_Set();
+    DelayMs(10);
+    MHET_RST_Set();
+    DelayMs(200);
+    
+    MHET_Send_CMD(BORDER_WAVEFORM_CONTROL);
+    MHET_Send_Data(&data[0], 1);
+    
+    MHET_Send_CMD(MHET_WRITE_RAM);
+    for(j=0; j<EPD_HEIGHT; j++){
+        for(i=0; i<(uint8_t)(EPD_WIDTH/8); i++){
+           MHET_Send_Data(&image[i + j * (uint8_t)(EPD_WIDTH/8)], 1); 
+        }
+    }
+    
+    MHET_TurnOnDisplayPart();
+}
+
+void MHET_Sleep(void){
+    uint8_t data[1] = {0x01};
+    
+    MHET_Send_CMD(MHET_DEEP_SLEEP);
+    MHET_Send_Data(&data[0], 1);
+}
+
+void MHET_WakeFromSleep(void){
+    uint8_t data[1] = {0x00};
+    
+    MHET_Send_CMD(MHET_DEEP_SLEEP);
+    MHET_Send_Data(&data[0], 1);  
+}
+
+void MHET_Display_Welcome_Message(void){
+    
 }
 
 void MHET_Set_Time_And_Date(void){
     
 }
 
-void MHET_Plot_Data(settings_t *global_settings, uint16_t pm1, uint16_t pm25, uint16_t pm10, double tempd, double humid, uint16_t gauge_RSOC){
+void MHET_Plot_Data(uint16_t pm1, uint16_t pm25, uint16_t pm10, double tempd, double humid, uint16_t gauge_RSOC){
     DEBUG_PRINT(" pm1=%d, pm25=%d, pm10=%d, temp=%f, humi=%f, RSOC=%u", pm1, pm25, pm10, tempd, humid, gauge_RSOC);
     DelayMs(1000);
 }

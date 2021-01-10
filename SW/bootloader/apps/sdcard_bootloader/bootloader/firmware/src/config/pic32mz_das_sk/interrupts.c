@@ -58,17 +58,71 @@
 // *****************************************************************************
 
 
+void TIMER_1_InterruptHandler( void );
+void SPI1_RX_InterruptHandler( void );
+void SPI1_TX_InterruptHandler( void );
+void I2C1_BUS_InterruptHandler( void );
+void I2C1_MASTER_InterruptHandler( void );
 void CHANGE_NOTICE_B_InterruptHandler( void );
 void CHANGE_NOTICE_D_InterruptHandler( void );
 void CHANGE_NOTICE_E_InterruptHandler( void );
 void CHANGE_NOTICE_F_InterruptHandler( void );
+void SPI2_RX_InterruptHandler( void );
+void SPI2_TX_InterruptHandler( void );
 void SPI3_RX_InterruptHandler( void );
 void SPI3_TX_InterruptHandler( void );
+void I2C3_BUS_InterruptHandler( void );
+void I2C3_MASTER_InterruptHandler( void );
 void NVM_InterruptHandler( void );
 
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
+void __ISR(_EXTERNAL_0_VECTOR, ipl6AUTO) EXTERNAL_0_Handler (void)
+{
+}
+
+void __ISR(_TIMER_1_VECTOR, ipl1AUTO) TIMER_1_Handler (void)
+{
+    TIMER_1_InterruptHandler();
+}
+
+void __ISR(_EXTERNAL_1_VECTOR, ipl7AUTO) EXTERNAL_1_Handler (void)
+{
+}
+
+void __ISR(_EXTERNAL_2_VECTOR, ipl1AUTO) EXTERNAL_2_Handler (void)
+{
+}
+
+void __ISR(_EXTERNAL_3_VECTOR, ipl1AUTO) EXTERNAL_3_Handler (void)
+{
+}
+
+void __ISR(_EXTERNAL_4_VECTOR, ipl1AUTO) EXTERNAL_4_Handler (void)
+{
+}
+
+void __ISR(_SPI1_RX_VECTOR, ipl1AUTO) SPI1_RX_Handler (void)
+{
+    SPI1_RX_InterruptHandler();
+}
+
+void __ISR(_SPI1_TX_VECTOR, ipl1AUTO) SPI1_TX_Handler (void)
+{
+    SPI1_TX_InterruptHandler();
+}
+
+void __ISR(_I2C1_BUS_VECTOR, ipl1AUTO) I2C1_BUS_Handler (void)
+{
+    I2C1_BUS_InterruptHandler();
+}
+
+void __ISR(_I2C1_MASTER_VECTOR, ipl1AUTO) I2C1_MASTER_Handler (void)
+{
+    I2C1_MASTER_InterruptHandler();
+}
+
 void __ISR(_CHANGE_NOTICE_B_VECTOR, ipl1AUTO) CHANGE_NOTICE_B_Handler (void)
 {
     CHANGE_NOTICE_B_InterruptHandler();
@@ -89,6 +143,16 @@ void __ISR(_CHANGE_NOTICE_F_VECTOR, ipl1AUTO) CHANGE_NOTICE_F_Handler (void)
     CHANGE_NOTICE_F_InterruptHandler();
 }
 
+void __ISR(_SPI2_RX_VECTOR, ipl1AUTO) SPI2_RX_Handler (void)
+{
+    SPI2_RX_InterruptHandler();
+}
+
+void __ISR(_SPI2_TX_VECTOR, ipl1AUTO) SPI2_TX_Handler (void)
+{
+    SPI2_TX_InterruptHandler();
+}
+
 void __ISR(_SPI3_RX_VECTOR, ipl1AUTO) SPI3_RX_Handler (void)
 {
     SPI3_RX_InterruptHandler();
@@ -97,6 +161,24 @@ void __ISR(_SPI3_RX_VECTOR, ipl1AUTO) SPI3_RX_Handler (void)
 void __ISR(_SPI3_TX_VECTOR, ipl1AUTO) SPI3_TX_Handler (void)
 {
     SPI3_TX_InterruptHandler();
+}
+
+void __ISR(_UART3_RX_VECTOR, ipl1AUTO) UART3_RX_Handler (void)
+{
+}
+
+void __ISR(_UART3_TX_VECTOR, ipl1AUTO) UART3_TX_Handler (void)
+{
+}
+
+void __ISR(_I2C3_BUS_VECTOR, ipl1AUTO) I2C3_BUS_Handler (void)
+{
+    I2C3_BUS_InterruptHandler();
+}
+
+void __ISR(_I2C3_MASTER_VECTOR, ipl1AUTO) I2C3_MASTER_Handler (void)
+{
+    I2C3_MASTER_InterruptHandler();
 }
 
 void __ISR(_FLASH_CONTROL_VECTOR, ipl1AUTO) FLASH_CONTROL_Handler (void)

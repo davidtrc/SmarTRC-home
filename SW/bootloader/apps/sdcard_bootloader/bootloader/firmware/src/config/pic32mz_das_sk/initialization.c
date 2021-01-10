@@ -45,6 +45,7 @@
 // *****************************************************************************
 #include "definitions.h"
 #include "device.h"
+#include "bootloader/bootloader.h"
 
 
 
@@ -164,20 +165,22 @@
     PRECONbits.PFMWS = 2;
     CFGCONbits.ECCCON = 3;
     
-
     UART2_Initialize();
+
+	SPI3_Initialize();
+
+    TMR1_Initialize();
+
+    NVM_Initialize();
 
     if (bootloader_Trigger() == false)
     {
         printf("Bootloader trigger not detected, running APP\r\n");
+        bootloader_ClearTrigger();
         run_Application();
     }
     
     printf("Bootloader trigger detected, running it\r\n");
-    
-	SPI3_Initialize();
-
-    NVM_Initialize();
 
     APP_Initialize();
 

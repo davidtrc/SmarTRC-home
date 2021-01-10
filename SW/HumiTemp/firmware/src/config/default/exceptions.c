@@ -49,6 +49,9 @@
 #include "definitions.h"
 #include <stdio.h>
 
+#include "CustomTime.h"
+#include "bootloader.h"
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -125,13 +128,20 @@ void _general_exception_handler ( void )
 
     _cause_str  = cause[_excep_code];
     printf("\n\rGeneral Exception %s (cause=%d, addr=%x).\n\r", _cause_str, _excep_code, _excep_addr);
+    
+    DelayMs(1000);
+    bootloader_Trigger(); 
+    bootloader_TriggerReset();
 
+    //JDT imprimir por MHET que se va a reinstalar la actualizacion
+    /*
     while (1)
     {
         #if defined(__DEBUG) || defined(__DEBUG_D) && defined(__XC32)
             __builtin_software_breakpoint();
         #endif
     }
+    */
 }
 
 /*******************************************************************************

@@ -46,7 +46,7 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
+#include <stdio.h>
 #include <string.h>
 #include "sys/kmem.h"
 #include "plib_nvm.h"
@@ -163,6 +163,11 @@ static void NVM_StartOperationAtAddress( uint32_t address,  NVM_OPERATION_MODE o
     __builtin_mtc0(12, 0, processorStatus);
 
     IEC5SET   = NVM_INTERRUPT_ENABLE_MASK;
+}
+
+void NVM_Initialize( void )
+{
+    NVM_StartOperationAtAddress( NVMADDR,  NO_OPERATION );
 }
 
 /* ************************************************************************** */

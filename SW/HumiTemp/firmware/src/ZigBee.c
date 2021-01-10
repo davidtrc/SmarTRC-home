@@ -12,12 +12,12 @@
 
 uint8_t ZigBee_Get_Short_Register_Value(uint8_t register_in){
     
-    uint8_t register_rd[ZIGBEE_SHORT_RD_MSG_BYTES_SIZE];
+    static uint8_t register_rd[ZIGBEE_SHORT_RD_MSG_BYTES_SIZE];
     
     memset(register_rd, 0, sizeof(register_rd));
     register_rd[0] = (register_in<<1)+ZIGBEE_RD_BIT;    
-
-    if(!(SPI1_WriteRead(register_rd, ZIGBEE_WR_SHORT_RQST_BYTES_SIZE, &register_rd[ZIGBEE_WR_SHORT_RQST_BYTES_SIZE], ZIGBEE_RESPONSE_BYTES_SIZE)))
+    DEBUG_PRINT("To send=%X %X", register_rd[0], register_rd[1]);
+    if(!(SPI1_WriteRead(&register_rd, ZIGBEE_WR_SHORT_RQST_BYTES_SIZE, &register_rd[ZIGBEE_WR_SHORT_RQST_BYTES_SIZE], ZIGBEE_RESPONSE_BYTES_SIZE)))
         DEBUG_PRINT("WR ZIGBEE ERR NO IDLE IN GET_REG");
     while(SPI1_IsBusy());
     

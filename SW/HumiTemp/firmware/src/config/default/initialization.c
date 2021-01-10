@@ -140,6 +140,7 @@
 // *****************************************************************************
 
 
+
 /*******************************************************************************
   Function:
     void SYS_Initialize ( void *data )
@@ -158,7 +159,6 @@ void SYS_Initialize ( void* data )
   
     CLK_Initialize();
 	GPIO_Initialize();
-
     /* Configure Prefetch, Wait States and ECC */
     PRECONbits.PREFEN = 3;
     PRECONbits.PFMWS = 2;
@@ -175,14 +175,13 @@ void SYS_Initialize ( void* data )
 
 	SPI3_Initialize();
 
-    TMR1_Initialize();
-
 	SPI2_Initialize();
 
 	SPI1_Initialize();
 
-
-
+    TMR1_Initialize();
+    
+    NVM_Initialize();
 
 
     EVIC_Initialize();

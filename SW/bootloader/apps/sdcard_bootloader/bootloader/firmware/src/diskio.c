@@ -343,7 +343,7 @@ DSTATUS disk_initialize (BYTE pdrv){
 
 	if (ty) {			/* Initialization succeded */
 		Stat &= ~STA_NOINIT;	/* Clear STA_NOINIT */
-        SPI3_Set_Baudrate(1000000); 
+        SPI3_Set_Baudrate(500000); 
 	}
 
 	return Stat;

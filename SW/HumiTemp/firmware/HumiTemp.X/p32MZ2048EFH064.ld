@@ -116,7 +116,7 @@ MEMORY
 {
   /* All C files will be located here */
   /* PIC32MZ2018 flash size = 0x200000 */
-  kseg0_program_mem (rx)      : ORIGIN = (0x9D000000 + 0x2000), LENGTH = (0x200000 - 0x2000)
+  kseg0_program_mem (rx)      : ORIGIN = (0x9D000000 + 0x8000), LENGTH = (0x200000 - 0x8000)
   
   /* This memory region is dummy */
   kseg0_boot_mem              : ORIGIN = 0x9D000000, LENGTH = 0x0

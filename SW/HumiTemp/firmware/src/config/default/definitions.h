@@ -104,23 +104,6 @@ volatile bool btn_test2_interrupt;
 volatile bool PMS_Data_Sent;
 volatile bool PMS_Data_Received;
 
-typedef struct _settings_t {
-    uint8_t wakeup_time;
-    double heating_temp;
-    uint16_t ZigBee_MasterID;
-    uint8_t day;
-    uint8_t month;
-    uint16_t year;
-    uint8_t hour;
-    uint8_t minute;
-    bool SHT35_init;
-    bool ZigBee_init;
-    bool MHET_init;
-    bool PMS7003_init;
-    bool uSD_init;
-    bool LC709203F_init;
-} settings_t;
-
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 

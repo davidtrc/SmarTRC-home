@@ -1,24 +1,20 @@
 /*******************************************************************************
-  Non-Volatile Memory Controller(NVM) PLIB.
-
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_nvm.h
+    bootloader.c
 
   Summary:
-    Interface definition of NVM Plib.
+    Interface for the Bootloader library.
 
   Description:
-    This file defines the interface for the NVM Plib.
-    It allows user to Program, Erase and lock the on-chip Non Volatile Flash
-    Memory.
-
+    This file contains the interface definition for the Bootloader library.
 *******************************************************************************/
+
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -41,68 +37,56 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef PLIB_NVM_H
-#define PLIB_NVM_H
-
 // *****************************************************************************
 // *****************************************************************************
-// Section: Included Files
+// Section: Include Files
 // *****************************************************************************
 // *****************************************************************************
 
-#include "device.h"     // For device registers and uint32_t
-#include <stdbool.h>    // For bool
+#include <string.h>
 
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
- extern "C" {
-#endif
+#include "peripheral/nvm/plib_nvm.h"
+#include "bootloader.h"
+#include "sys/kmem.h"
 
-// DOM-IGNORE-END
+#include "definitions.h"                // SYS function prototypes
+#include "CustomTime.h"
 
-#define NVM_FLASH_START_ADDRESS    (0x9d000000U)
-#define NVM_FLASH_SIZE             (0x200000U)
-#define NVM_FLASH_ROWSIZE          (2048U)
-#define NVM_FLASH_PAGESIZE         (16384U)
-
-
-typedef enum
+void bootloader_Clear_Trigger(void)
 {
-    /* No error */
-    NVM_ERROR_NONE = 0x0,
+    /* Function can be overriden with custom implementation */
+    
+    uint32_t *sram = (uint32_t *)BTL_TRIGGER_RAM_START;
 
-    /* NVM write error */
-    NVM_ERROR_WRITE = _NVMCON_WRERR_MASK,
-
-    /* NVM Low Voltage Detect error */
-    NVM_ERROR_LOWVOLTAGE = _NVMCON_LVDERR_MASK,
-
-} NVM_ERROR;
-
-typedef void (*NVM_CALLBACK)(uintptr_t context);
-
-void NVM_Initialize( void );
-
-bool NVM_Read( uint32_t *data, uint32_t length, const uint32_t address );
-
-bool NVM_WordWrite(uint32_t data, uint32_t address);
-
-bool NVM_QuadWordWrite(uint32_t *data, uint32_t address);
-
-bool NVM_RowWrite(uint32_t *data, uint32_t address);
-
-bool NVM_PageErase(uint32_t address);
-
-NVM_ERROR NVM_ErrorGet( void );
-
-bool NVM_IsBusy( void );
-
-void NVM_CallbackRegister ( NVM_CALLBACK callback, uintptr_t context );
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
+    sram[0] = BTL_CLEAR_TRIGGER_PATTERN;
+    sram[1] = BTL_CLEAR_TRIGGER_PATTERN;
+    sram[2] = BTL_CLEAR_TRIGGER_PATTERN;
+    sram[3] = BTL_CLEAR_TRIGGER_PATTERN;
 }
-#endif
 
-// DOM-IGNORE-END
-#endif // PLIB_NVM_H
+void bootloader_Trigger(void)
+{
+    /* Function can be overriden with custom implementation */
+    
+    uint32_t *sram = (uint32_t *)BTL_TRIGGER_RAM_START;
+
+    sram[0] = BTL_TRIGGER_PATTERN;
+    sram[1] = BTL_TRIGGER_PATTERN;
+    sram[2] = BTL_TRIGGER_PATTERN;
+    sram[3] = BTL_TRIGGER_PATTERN;
+}
+
+void bootloader_TriggerReset(void)
+{
+    __builtin_disable_interrupts();
+    
+    DelayMs(1000);
+    
+    /* Perform system unlock sequence */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    RSWRSTSET = _RSWRST_SWRST_MASK;
+    (void)RSWRST;
+}

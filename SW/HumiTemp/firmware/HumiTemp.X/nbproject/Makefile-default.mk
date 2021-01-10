@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../src/crc8.c ../src/config/default/peripheral/clk/plib_clk.c ../src/config/default/peripheral/evic/plib_evic.c ../src/config/default/peripheral/gpio/plib_gpio.c ../src/config/default/peripheral/i2c/plib_i2c1.c ../src/config/default/peripheral/i2c/plib_i2c3.c ../src/config/default/peripheral/nvm/plib_nvm.c ../src/config/default/peripheral/spi/plib_spi3.c ../src/config/default/peripheral/spi/plib_spi2.c ../src/config/default/peripheral/spi/plib_spi1.c ../src/config/default/peripheral/tmr1/plib_tmr1.c ../src/config/default/peripheral/uart/plib_uart3.c ../src/config/default/peripheral/uart/plib_uart2.c ../src/config/default/stdio/xc32_monitor.c ../src/config/default/initialization.c ../src/config/default/interrupts.c ../src/config/default/exceptions.c ../src/CustomTime.c ../src/diskio.c ../src/ff.c ../src/LC709203F.c ../src/MH_ET_Live.c ../src/PMS7003.c ../src/SHT35.c ../src/uSD.c ../src/ZigBee.c ../src/main.c
+SOURCEFILES_QUOTED_IF_SPACED=../src/bootloader.c ../src/crc8.c ../src/config/default/peripheral/clk/plib_clk.c ../src/config/default/peripheral/evic/plib_evic.c ../src/config/default/peripheral/gpio/plib_gpio.c ../src/config/default/peripheral/i2c/plib_i2c1.c ../src/config/default/peripheral/i2c/plib_i2c3.c ../src/config/default/peripheral/nvm/plib_nvm.c ../src/config/default/peripheral/spi/plib_spi3.c ../src/config/default/peripheral/spi/plib_spi2.c ../src/config/default/peripheral/spi/plib_spi1.c ../src/config/default/peripheral/tmr1/plib_tmr1.c ../src/config/default/peripheral/uart/plib_uart3.c ../src/config/default/peripheral/uart/plib_uart2.c ../src/config/default/stdio/xc32_monitor.c ../src/config/default/initialization.c ../src/config/default/interrupts.c ../src/config/default/exceptions.c ../src/CustomTime.c ../src/diskio.c ../src/ff.c ../src/LC709203F.c ../src/MH_ET_Live.c ../src/PMS7003.c ../src/settings.c ../src/SHT35.c ../src/uSD.c ../src/ZigBee.c ../src/main.c ../src/EPDPaint.c ../src/font24.c ../src/font20.c ../src/font16.c ../src/font12.c ../src/font8.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360937237/crc8.o ${OBJECTDIR}/_ext/60165520/plib_clk.o ${OBJECTDIR}/_ext/1865200349/plib_evic.o ${OBJECTDIR}/_ext/1865254177/plib_gpio.o ${OBJECTDIR}/_ext/60169480/plib_i2c1.o ${OBJECTDIR}/_ext/60169480/plib_i2c3.o ${OBJECTDIR}/_ext/60176403/plib_nvm.o ${OBJECTDIR}/_ext/60181018/plib_spi3.o ${OBJECTDIR}/_ext/60181018/plib_spi2.o ${OBJECTDIR}/_ext/60181018/plib_spi1.o ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o ${OBJECTDIR}/_ext/1865657120/plib_uart3.o ${OBJECTDIR}/_ext/1865657120/plib_uart2.o ${OBJECTDIR}/_ext/163028504/xc32_monitor.o ${OBJECTDIR}/_ext/1171490990/initialization.o ${OBJECTDIR}/_ext/1171490990/interrupts.o ${OBJECTDIR}/_ext/1171490990/exceptions.o ${OBJECTDIR}/_ext/1360937237/CustomTime.o ${OBJECTDIR}/_ext/1360937237/diskio.o ${OBJECTDIR}/_ext/1360937237/ff.o ${OBJECTDIR}/_ext/1360937237/LC709203F.o ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ${OBJECTDIR}/_ext/1360937237/SHT35.o ${OBJECTDIR}/_ext/1360937237/uSD.o ${OBJECTDIR}/_ext/1360937237/ZigBee.o ${OBJECTDIR}/_ext/1360937237/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360937237/crc8.o.d ${OBJECTDIR}/_ext/60165520/plib_clk.o.d ${OBJECTDIR}/_ext/1865200349/plib_evic.o.d ${OBJECTDIR}/_ext/1865254177/plib_gpio.o.d ${OBJECTDIR}/_ext/60169480/plib_i2c1.o.d ${OBJECTDIR}/_ext/60169480/plib_i2c3.o.d ${OBJECTDIR}/_ext/60176403/plib_nvm.o.d ${OBJECTDIR}/_ext/60181018/plib_spi3.o.d ${OBJECTDIR}/_ext/60181018/plib_spi2.o.d ${OBJECTDIR}/_ext/60181018/plib_spi1.o.d ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o.d ${OBJECTDIR}/_ext/1865657120/plib_uart3.o.d ${OBJECTDIR}/_ext/1865657120/plib_uart2.o.d ${OBJECTDIR}/_ext/163028504/xc32_monitor.o.d ${OBJECTDIR}/_ext/1171490990/initialization.o.d ${OBJECTDIR}/_ext/1171490990/interrupts.o.d ${OBJECTDIR}/_ext/1171490990/exceptions.o.d ${OBJECTDIR}/_ext/1360937237/CustomTime.o.d ${OBJECTDIR}/_ext/1360937237/diskio.o.d ${OBJECTDIR}/_ext/1360937237/ff.o.d ${OBJECTDIR}/_ext/1360937237/LC709203F.o.d ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o.d ${OBJECTDIR}/_ext/1360937237/PMS7003.o.d ${OBJECTDIR}/_ext/1360937237/SHT35.o.d ${OBJECTDIR}/_ext/1360937237/uSD.o.d ${OBJECTDIR}/_ext/1360937237/ZigBee.o.d ${OBJECTDIR}/_ext/1360937237/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360937237/bootloader.o ${OBJECTDIR}/_ext/1360937237/crc8.o ${OBJECTDIR}/_ext/60165520/plib_clk.o ${OBJECTDIR}/_ext/1865200349/plib_evic.o ${OBJECTDIR}/_ext/1865254177/plib_gpio.o ${OBJECTDIR}/_ext/60169480/plib_i2c1.o ${OBJECTDIR}/_ext/60169480/plib_i2c3.o ${OBJECTDIR}/_ext/60176403/plib_nvm.o ${OBJECTDIR}/_ext/60181018/plib_spi3.o ${OBJECTDIR}/_ext/60181018/plib_spi2.o ${OBJECTDIR}/_ext/60181018/plib_spi1.o ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o ${OBJECTDIR}/_ext/1865657120/plib_uart3.o ${OBJECTDIR}/_ext/1865657120/plib_uart2.o ${OBJECTDIR}/_ext/163028504/xc32_monitor.o ${OBJECTDIR}/_ext/1171490990/initialization.o ${OBJECTDIR}/_ext/1171490990/interrupts.o ${OBJECTDIR}/_ext/1171490990/exceptions.o ${OBJECTDIR}/_ext/1360937237/CustomTime.o ${OBJECTDIR}/_ext/1360937237/diskio.o ${OBJECTDIR}/_ext/1360937237/ff.o ${OBJECTDIR}/_ext/1360937237/LC709203F.o ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ${OBJECTDIR}/_ext/1360937237/settings.o ${OBJECTDIR}/_ext/1360937237/SHT35.o ${OBJECTDIR}/_ext/1360937237/uSD.o ${OBJECTDIR}/_ext/1360937237/ZigBee.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/EPDPaint.o ${OBJECTDIR}/_ext/1360937237/font24.o ${OBJECTDIR}/_ext/1360937237/font20.o ${OBJECTDIR}/_ext/1360937237/font16.o ${OBJECTDIR}/_ext/1360937237/font12.o ${OBJECTDIR}/_ext/1360937237/font8.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360937237/bootloader.o.d ${OBJECTDIR}/_ext/1360937237/crc8.o.d ${OBJECTDIR}/_ext/60165520/plib_clk.o.d ${OBJECTDIR}/_ext/1865200349/plib_evic.o.d ${OBJECTDIR}/_ext/1865254177/plib_gpio.o.d ${OBJECTDIR}/_ext/60169480/plib_i2c1.o.d ${OBJECTDIR}/_ext/60169480/plib_i2c3.o.d ${OBJECTDIR}/_ext/60176403/plib_nvm.o.d ${OBJECTDIR}/_ext/60181018/plib_spi3.o.d ${OBJECTDIR}/_ext/60181018/plib_spi2.o.d ${OBJECTDIR}/_ext/60181018/plib_spi1.o.d ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o.d ${OBJECTDIR}/_ext/1865657120/plib_uart3.o.d ${OBJECTDIR}/_ext/1865657120/plib_uart2.o.d ${OBJECTDIR}/_ext/163028504/xc32_monitor.o.d ${OBJECTDIR}/_ext/1171490990/initialization.o.d ${OBJECTDIR}/_ext/1171490990/interrupts.o.d ${OBJECTDIR}/_ext/1171490990/exceptions.o.d ${OBJECTDIR}/_ext/1360937237/CustomTime.o.d ${OBJECTDIR}/_ext/1360937237/diskio.o.d ${OBJECTDIR}/_ext/1360937237/ff.o.d ${OBJECTDIR}/_ext/1360937237/LC709203F.o.d ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o.d ${OBJECTDIR}/_ext/1360937237/PMS7003.o.d ${OBJECTDIR}/_ext/1360937237/settings.o.d ${OBJECTDIR}/_ext/1360937237/SHT35.o.d ${OBJECTDIR}/_ext/1360937237/uSD.o.d ${OBJECTDIR}/_ext/1360937237/ZigBee.o.d ${OBJECTDIR}/_ext/1360937237/main.o.d ${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d ${OBJECTDIR}/_ext/1360937237/font24.o.d ${OBJECTDIR}/_ext/1360937237/font20.o.d ${OBJECTDIR}/_ext/1360937237/font16.o.d ${OBJECTDIR}/_ext/1360937237/font12.o.d ${OBJECTDIR}/_ext/1360937237/font8.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360937237/crc8.o ${OBJECTDIR}/_ext/60165520/plib_clk.o ${OBJECTDIR}/_ext/1865200349/plib_evic.o ${OBJECTDIR}/_ext/1865254177/plib_gpio.o ${OBJECTDIR}/_ext/60169480/plib_i2c1.o ${OBJECTDIR}/_ext/60169480/plib_i2c3.o ${OBJECTDIR}/_ext/60176403/plib_nvm.o ${OBJECTDIR}/_ext/60181018/plib_spi3.o ${OBJECTDIR}/_ext/60181018/plib_spi2.o ${OBJECTDIR}/_ext/60181018/plib_spi1.o ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o ${OBJECTDIR}/_ext/1865657120/plib_uart3.o ${OBJECTDIR}/_ext/1865657120/plib_uart2.o ${OBJECTDIR}/_ext/163028504/xc32_monitor.o ${OBJECTDIR}/_ext/1171490990/initialization.o ${OBJECTDIR}/_ext/1171490990/interrupts.o ${OBJECTDIR}/_ext/1171490990/exceptions.o ${OBJECTDIR}/_ext/1360937237/CustomTime.o ${OBJECTDIR}/_ext/1360937237/diskio.o ${OBJECTDIR}/_ext/1360937237/ff.o ${OBJECTDIR}/_ext/1360937237/LC709203F.o ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ${OBJECTDIR}/_ext/1360937237/SHT35.o ${OBJECTDIR}/_ext/1360937237/uSD.o ${OBJECTDIR}/_ext/1360937237/ZigBee.o ${OBJECTDIR}/_ext/1360937237/main.o
+OBJECTFILES=${OBJECTDIR}/_ext/1360937237/bootloader.o ${OBJECTDIR}/_ext/1360937237/crc8.o ${OBJECTDIR}/_ext/60165520/plib_clk.o ${OBJECTDIR}/_ext/1865200349/plib_evic.o ${OBJECTDIR}/_ext/1865254177/plib_gpio.o ${OBJECTDIR}/_ext/60169480/plib_i2c1.o ${OBJECTDIR}/_ext/60169480/plib_i2c3.o ${OBJECTDIR}/_ext/60176403/plib_nvm.o ${OBJECTDIR}/_ext/60181018/plib_spi3.o ${OBJECTDIR}/_ext/60181018/plib_spi2.o ${OBJECTDIR}/_ext/60181018/plib_spi1.o ${OBJECTDIR}/_ext/1865638794/plib_tmr1.o ${OBJECTDIR}/_ext/1865657120/plib_uart3.o ${OBJECTDIR}/_ext/1865657120/plib_uart2.o ${OBJECTDIR}/_ext/163028504/xc32_monitor.o ${OBJECTDIR}/_ext/1171490990/initialization.o ${OBJECTDIR}/_ext/1171490990/interrupts.o ${OBJECTDIR}/_ext/1171490990/exceptions.o ${OBJECTDIR}/_ext/1360937237/CustomTime.o ${OBJECTDIR}/_ext/1360937237/diskio.o ${OBJECTDIR}/_ext/1360937237/ff.o ${OBJECTDIR}/_ext/1360937237/LC709203F.o ${OBJECTDIR}/_ext/1360937237/MH_ET_Live.o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ${OBJECTDIR}/_ext/1360937237/settings.o ${OBJECTDIR}/_ext/1360937237/SHT35.o ${OBJECTDIR}/_ext/1360937237/uSD.o ${OBJECTDIR}/_ext/1360937237/ZigBee.o ${OBJECTDIR}/_ext/1360937237/main.o ${OBJECTDIR}/_ext/1360937237/EPDPaint.o ${OBJECTDIR}/_ext/1360937237/font24.o ${OBJECTDIR}/_ext/1360937237/font20.o ${OBJECTDIR}/_ext/1360937237/font16.o ${OBJECTDIR}/_ext/1360937237/font12.o ${OBJECTDIR}/_ext/1360937237/font8.o
 
 # Source Files
-SOURCEFILES=../src/crc8.c ../src/config/default/peripheral/clk/plib_clk.c ../src/config/default/peripheral/evic/plib_evic.c ../src/config/default/peripheral/gpio/plib_gpio.c ../src/config/default/peripheral/i2c/plib_i2c1.c ../src/config/default/peripheral/i2c/plib_i2c3.c ../src/config/default/peripheral/nvm/plib_nvm.c ../src/config/default/peripheral/spi/plib_spi3.c ../src/config/default/peripheral/spi/plib_spi2.c ../src/config/default/peripheral/spi/plib_spi1.c ../src/config/default/peripheral/tmr1/plib_tmr1.c ../src/config/default/peripheral/uart/plib_uart3.c ../src/config/default/peripheral/uart/plib_uart2.c ../src/config/default/stdio/xc32_monitor.c ../src/config/default/initialization.c ../src/config/default/interrupts.c ../src/config/default/exceptions.c ../src/CustomTime.c ../src/diskio.c ../src/ff.c ../src/LC709203F.c ../src/MH_ET_Live.c ../src/PMS7003.c ../src/SHT35.c ../src/uSD.c ../src/ZigBee.c ../src/main.c
+SOURCEFILES=../src/bootloader.c ../src/crc8.c ../src/config/default/peripheral/clk/plib_clk.c ../src/config/default/peripheral/evic/plib_evic.c ../src/config/default/peripheral/gpio/plib_gpio.c ../src/config/default/peripheral/i2c/plib_i2c1.c ../src/config/default/peripheral/i2c/plib_i2c3.c ../src/config/default/peripheral/nvm/plib_nvm.c ../src/config/default/peripheral/spi/plib_spi3.c ../src/config/default/peripheral/spi/plib_spi2.c ../src/config/default/peripheral/spi/plib_spi1.c ../src/config/default/peripheral/tmr1/plib_tmr1.c ../src/config/default/peripheral/uart/plib_uart3.c ../src/config/default/peripheral/uart/plib_uart2.c ../src/config/default/stdio/xc32_monitor.c ../src/config/default/initialization.c ../src/config/default/interrupts.c ../src/config/default/exceptions.c ../src/CustomTime.c ../src/diskio.c ../src/ff.c ../src/LC709203F.c ../src/MH_ET_Live.c ../src/PMS7003.c ../src/settings.c ../src/SHT35.c ../src/uSD.c ../src/ZigBee.c ../src/main.c ../src/EPDPaint.c ../src/font24.c ../src/font20.c ../src/font16.c ../src/font12.c ../src/font8.c
 
 
 
@@ -107,6 +107,12 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/_ext/1360937237/bootloader.o: ../src/bootloader.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloader.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloader.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloader.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloader.o.d" -o ${OBJECTDIR}/_ext/1360937237/bootloader.o ../src/bootloader.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
 ${OBJECTDIR}/_ext/1360937237/crc8.o: ../src/crc8.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/crc8.o.d 
@@ -245,6 +251,12 @@ ${OBJECTDIR}/_ext/1360937237/PMS7003.o: ../src/PMS7003.c  nbproject/Makefile-${C
 	@${RM} ${OBJECTDIR}/_ext/1360937237/PMS7003.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/PMS7003.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/PMS7003.o.d" -o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ../src/PMS7003.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/_ext/1360937237/settings.o: ../src/settings.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/settings.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/settings.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/settings.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/settings.o.d" -o ${OBJECTDIR}/_ext/1360937237/settings.o ../src/settings.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
 ${OBJECTDIR}/_ext/1360937237/SHT35.o: ../src/SHT35.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/SHT35.o.d 
@@ -269,7 +281,49 @@ ${OBJECTDIR}/_ext/1360937237/main.o: ../src/main.c  nbproject/Makefile-${CND_CON
 	@${RM} ${OBJECTDIR}/_ext/1360937237/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/main.o.d" -o ${OBJECTDIR}/_ext/1360937237/main.o ../src/main.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/_ext/1360937237/EPDPaint.o: ../src/EPDPaint.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/EPDPaint.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d" -o ${OBJECTDIR}/_ext/1360937237/EPDPaint.o ../src/EPDPaint.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font24.o: ../src/font24.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font24.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font24.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font24.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font24.o.d" -o ${OBJECTDIR}/_ext/1360937237/font24.o ../src/font24.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font20.o: ../src/font20.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font20.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font20.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font20.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font20.o.d" -o ${OBJECTDIR}/_ext/1360937237/font20.o ../src/font20.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font16.o: ../src/font16.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font16.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font16.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font16.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font16.o.d" -o ${OBJECTDIR}/_ext/1360937237/font16.o ../src/font16.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font12.o: ../src/font12.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font12.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font12.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font12.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font12.o.d" -o ${OBJECTDIR}/_ext/1360937237/font12.o ../src/font12.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font8.o: ../src/font8.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font8.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font8.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font8.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font8.o.d" -o ${OBJECTDIR}/_ext/1360937237/font8.o ../src/font8.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
 else
+${OBJECTDIR}/_ext/1360937237/bootloader.o: ../src/bootloader.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloader.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/bootloader.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/bootloader.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/bootloader.o.d" -o ${OBJECTDIR}/_ext/1360937237/bootloader.o ../src/bootloader.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
 ${OBJECTDIR}/_ext/1360937237/crc8.o: ../src/crc8.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/crc8.o.d 
@@ -408,6 +462,12 @@ ${OBJECTDIR}/_ext/1360937237/PMS7003.o: ../src/PMS7003.c  nbproject/Makefile-${C
 	@${RM} ${OBJECTDIR}/_ext/1360937237/PMS7003.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/PMS7003.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/PMS7003.o.d" -o ${OBJECTDIR}/_ext/1360937237/PMS7003.o ../src/PMS7003.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/_ext/1360937237/settings.o: ../src/settings.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/settings.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/settings.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/settings.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/settings.o.d" -o ${OBJECTDIR}/_ext/1360937237/settings.o ../src/settings.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
 ${OBJECTDIR}/_ext/1360937237/SHT35.o: ../src/SHT35.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/SHT35.o.d 
@@ -431,6 +491,42 @@ ${OBJECTDIR}/_ext/1360937237/main.o: ../src/main.c  nbproject/Makefile-${CND_CON
 	@${RM} ${OBJECTDIR}/_ext/1360937237/main.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1360937237/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/main.o.d" -o ${OBJECTDIR}/_ext/1360937237/main.o ../src/main.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/EPDPaint.o: ../src/EPDPaint.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/EPDPaint.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/EPDPaint.o.d" -o ${OBJECTDIR}/_ext/1360937237/EPDPaint.o ../src/EPDPaint.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font24.o: ../src/font24.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font24.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font24.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font24.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font24.o.d" -o ${OBJECTDIR}/_ext/1360937237/font24.o ../src/font24.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font20.o: ../src/font20.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font20.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font20.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font20.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font20.o.d" -o ${OBJECTDIR}/_ext/1360937237/font20.o ../src/font20.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font16.o: ../src/font16.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font16.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font16.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font16.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font16.o.d" -o ${OBJECTDIR}/_ext/1360937237/font16.o ../src/font16.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font12.o: ../src/font12.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font12.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font12.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font12.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font12.o.d" -o ${OBJECTDIR}/_ext/1360937237/font12.o ../src/font12.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1360937237/font8.o: ../src/font8.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1360937237" 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font8.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360937237/font8.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1360937237/font8.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -I"../src" -I"../src/config/default" -I"../src/packs/PIC32MZ2048EFH064_DFP" -I"../src/mips" -Wall -MMD -MF "${OBJECTDIR}/_ext/1360937237/font8.o.d" -o ${OBJECTDIR}/_ext/1360937237/font8.o ../src/font8.c    -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

@@ -44,11 +44,12 @@
 
 #include "sys/kmem.h"
 
-#define BTL_TRIGGER_RAM_START   KVA0_TO_KVA1(0x80000000)
+#define BTL_TRIGGER_RAM_START               KVA0_TO_KVA1(0x80000000)
+#define BTL_TRIGGER_PATTERN                 (0x5048434DUL)
+#define BTL_CLEAR_TRIGGER_PATTERN           (0xFF00FF00UL)
+#define APP_IMAGE_FILE_NAME                 "image.hex"
 
-#define BTL_TRIGGER_LEN         16
-
-
+void bootloader_Clear_Trigger(void);
 // *****************************************************************************
 /* Function:
     bool bootloader_Trigger( void );
@@ -106,93 +107,8 @@
 
     </code>
 */
-bool bootloader_Trigger( void );
+void bootloader_Trigger(void);
 
-// *****************************************************************************
-/* Function:
-    void run_Application( void );
-
- Summary:
-    Runs the programmed application at startup.
-
- Description:
-    This function can be used to run programmed application though bootloader at startup.
-
-    If the first 4Bytes of Application Memory is not 0xFFFFFFFF then it jumps to
-    the application start address to run the application programmed through bootloader and
-    never returns.
-
-    If the first 4Bytes of Application Memory is 0xFFFFFFFF then it returns from function
-    and executes bootloader for accepting a new application firmware.
-
- Precondition:
-    bootloader_Trigger() must be called to check for bootloader triggers at startup.
-
- Parameters:
-    None.
-
- Returns:
-    None
-
- Example:
-    <code>
-
-        NVMCTRL_Initialize();
-
-        PORT_Initialize();
-
-        if (bootloader_Trigger() == false)
-        {
-            run_Application();
-        }
-
-        CLOCK_Initialize();
-
-    </code>
-*/
-void run_Application( void );
-
-// *****************************************************************************
-/* Function:
-    void bootloader_Tasks( void );
-
- Summary:
-    Starts bootloader execution.
-
- Description:
-    This function can be used to start bootloader execution.
-
-    The function continuously waits for application firmware from the HOST via
-    selected communication protocol to program into internal flash memory.
-
-    Once the complete application is received, programmed and verified successfully,
-    It resets the device to jump into programmed application.
-
-    Note:
-    For Optimized Bootloaders:
-        - This function never returns.
-        - This function will be directly called from main function
-
-    For Unified and File System based Bootloaders:
-        - This function returns once the state machine execution is completed
-        - This function will be called from SYS_Tasks() routine from the super loop
-
- Precondition:
-    bootloader_Trigger() must be called to check for bootloader triggers at startup.
-
- Parameters:
-    None.
-
- Returns:
-    None
-
- Example:
-    <code>
-
-        bootloader_Tasks();
-
-    </code>
-*/
-void bootloader_Tasks( void );
+void bootloader_TriggerReset(void);
 
 #endif
